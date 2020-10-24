@@ -1,0 +1,83 @@
+.logup-container {
+
+    &::before {
+        content:"";
+        width:250px;
+        height: 100px;
+        background-size: cover;
+
+    }
+
+    form {
+        // margin: 0 5px 5px 5px;
+        border-radius: 21px;
+        padding:rem(10px);
+        width: 300px;
+        text-align: center;
+        margin: 0 auto;
+        // @for $i from 1 through 2 {
+        //     &:nth-child(#{$i}) {
+        //         background-color: adjust-hue($clr3, $i*5deg );
+        //     }
+        // }
+        img{
+            height: 100vh;
+            object-fit: cover;
+        }
+        .login-title{
+            flex-direction: column;
+            font-family: FiraSans-bold;
+            font-size: rem(28px);
+            color:$clr3; 
+            
+        }
+
+    }
+
+}
+.logup-form{
+    position: absolute;
+    top: 25%;
+    left: 35%;
+    width: 30%;
+    border-radius: 16px;
+    background-color: #e2ecec96;
+    .MuiButtonBase-root {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        background-color: $clr1;
+    }
+    .MuiInputBase-root{
+        color: $clr3 !important;
+    }
+}
+
+
+.logout { //important bacause of UI
+    background-color: $clr4 !important;
+    color:$clr2 !important;
+}
+
+.sign-up-log-container {
+    align-items: center;
+    justify-content: center;
+    // flex-direction: column;
+}
+
+.sign-up-log{
+    text-align: center;
+    color: #0b0c0c;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin: 5px 2px;
+    padding: 3px 6px;
+    border-radius: 16px;
+    background-color: #edecf3;
+    cursor: pointer;
+    margin-bottom: 10px;
+
+    &:hover {
+        color:$clr1;
+    }
+}
+

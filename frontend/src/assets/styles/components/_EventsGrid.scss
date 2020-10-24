@@ -1,0 +1,105 @@
+.sub-nav {
+    ul {
+        display: flex;
+        justify-content: space-evenly;
+        color: $clr4;
+        li {
+            transition: background-color 0.3s;
+            cursor: pointer;
+            height: 50px;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &:hover {
+                background-color: #b400ff17;
+            }
+        }
+    }
+}
+
+.events-grid {
+    margin: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-auto-rows: 150px;
+    grid-gap: 5px;
+}
+
+.flip-card {
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    backface-visibility: hidden;
+}
+
+.flip-card-front {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+
+    .title {
+        color: white;
+        font-family: Caveat, sans-serif;
+        font-size: 2.1rem;
+        text-shadow: -1px 0px 20px #232a43;
+
+        .dote {
+            color: #3be2ac;
+        }
+    }
+}
+
+.flip-card-back {
+    background-color: $clr4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 2rem;
+    font-family: Caveat, sans-serif;
+    transform: rotateY(180deg);
+}
+
+@media screen and (max-width: 1040px) {
+    .events-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    .sub-nav a {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .events-grid {
+        margin: 30px;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .sub-nav a {
+        font-size: 0.8rem;
+    }
+}

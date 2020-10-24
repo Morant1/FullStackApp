@@ -1,0 +1,22 @@
+.preview-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-auto-rows: auto;
+    grid-column: 2/-1;
+    grid-gap: 10px;
+    margin: 0 40px;
+    .preview-icon {
+        width: 15px;
+    }
+
+}
+
+
+.list-events{
+    display: grid;
+    grid-template-columns: 200px auto; 
+    margin-top: 70px
+    
+}
+
+

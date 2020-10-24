@@ -1,0 +1,123 @@
+// Home Page Preview
+
+.card-container {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    display: flex;
+    background-color: $clr4;
+    background-color: #88e4e412;
+    font-family: montserrat;
+    // &::-webkit-scrollbar {
+    //     display: none;  /* Safari and Chrome */
+    // }
+}
+
+.scroller {
+    padding-bottom: 20px;
+}
+
+.slide-title {
+    text-align: center;
+    font-family: PermanentMarker;
+    color: $clr3;
+    background-color: #88e4e412;
+    font-size: 1.5rem;
+}
+
+.preview {
+    min-width: 240px;
+    position: relative;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    transition: 0.2s;
+    .preview-icon {
+        width: 15px;
+    }
+}
+
+.preview:not(:first-child) {
+    margin-left: -130px;
+}
+
+.preview:hover {
+    transform: translateY(-1rem);
+}
+
+.preview:hover ~ .card {
+    transform: translateX(130px);
+}
+
+// Preview Page
+.eventi-preview {
+    background-color: $clr4;
+    color: $clr1;
+    display: inline-block;
+    margin-right: 5px;
+    margin: 10px 5px 10px 5px;
+
+    .preview-title {
+        font-weight: bolder;
+        font-size: 0.9rem;
+        color: $clr3;
+    }
+    .preview-subtitle {
+        font-size: rem(14px);
+    }
+
+    .img-area {
+        img {
+            height: 300px;
+            object-fit: cover;
+            border-radius: 16px;
+            border: 1px solid #00000021;
+        }
+        button {
+            position: absolute;
+            padding: 10px 0;
+            background-color: $clr1;
+            transition: all 0.2s;
+            width: 60px;
+            padding: 5px; 
+            font-size: 0.7rem;
+            color: $clr3;
+            border-radius: 0 10px 10px;
+            &.joined-user {
+                color: $clr1;
+                background-color: $clr3;
+            }
+        }
+    }
+    .preview-time {
+        color: #666666;
+        font-size: 0.9rem;
+        margin-right: 5px;
+    }
+    .preview-rank {
+        font-size: 0.8rem;
+        color: #7d7373;
+        .star {
+            color: $clr1;
+        }
+    }
+
+    .event-creator-section {
+        .creator {
+            margin-left: 5px;
+            font-size: 0.7rem;
+        }
+        .avatar {
+            width: rem(15px);
+            height: rem(15px);
+            border-radius: 50%;
+            font-size: 12px;
+        }
+    }
+}
+.main-rank {
+    color: $clr5;
+    margin: 0 2px;
+}
+
+
+

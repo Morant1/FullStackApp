@@ -1,0 +1,135 @@
+
+Wed, 30 Sep 2020 07:22:15 GMT - Debug - true, false, Guest-5242, 123456
+Wed, 30 Sep 2020 07:22:15 GMT - Debug - auth.service - signup with username: Guest-5242
+Wed, 30 Sep 2020 07:22:15 GMT - Debug - auth.route - new account created: {"isGuest":true,"isGoing":false,"password":"$2b$10$2qcHMo9vnq/Cid/qaEYkeeFalQo5amSXt70FU9A95flOOouKpifx6","username":"Guest-5242","_id":"5f7432273fa61c0c1c94e371"}
+Wed, 30 Sep 2020 07:22:15 GMT - Debug - auth.service - login with username: Guest-5242
+Wed, 30 Sep 2020 10:01:23 GMT - Info - Server is running on port: 3030
+Wed, 30 Sep 2020 10:01:58 GMT - Info - Server is running on port: 3030
+Wed, 30 Sep 2020 10:02:12 GMT - Debug - true, false, Guest-3622, 123456
+Wed, 30 Sep 2020 10:02:12 GMT - Debug - auth.service - signup with username: Guest-3622
+Wed, 30 Sep 2020 10:02:12 GMT - Debug - auth.route - new account created: {"isGuest":true,"isGoing":false,"password":"$2b$10$d0nPUIn31xp3.tImc0KH6eIGh1J6Ya8LM6WvfV33EclKi6hFlhsjW","username":"Guest-3622","_id":"5f7457a45d44303d682f5de4"}
+Wed, 30 Sep 2020 10:02:12 GMT - Debug - auth.service - login with username: Guest-3622
+Wed, 30 Sep 2020 10:03:01 GMT - Debug - true, false, Guest-4783, 123456
+Wed, 30 Sep 2020 10:03:01 GMT - Debug - auth.service - signup with username: Guest-4783
+Wed, 30 Sep 2020 10:03:02 GMT - Debug - auth.route - new account created: {"isGuest":true,"isGoing":false,"password":"$2b$10$KT.Fza1fmLtA2exHQnmxEOamdSwtdIDE6UQtl.lyYKgD72S4tJ9ky","username":"Guest-4783","_id":"5f7457d65d44303d682f5de5"}
+Wed, 30 Sep 2020 10:03:02 GMT - Debug - auth.service - login with username: Guest-4783
+Wed, 30 Sep 2020 10:19:06 GMT - Debug - true, false, Guest-6817, 123456
+Wed, 30 Sep 2020 10:19:06 GMT - Debug - auth.service - signup with username: Guest-6817
+Wed, 30 Sep 2020 10:19:06 GMT - Debug - auth.route - new account created: {"isGuest":true,"isGoing":false,"password":"$2b$10$EQNJV8qX8Fu2uQHncksZh.K6LjwQcMjv2OUAgRWUnHhamQFdpa8rW","username":"Guest-6817","_id":"5f745b9a5d44303d682f5de6"}
+Wed, 30 Sep 2020 10:19:06 GMT - Debug - auth.service - login with username: Guest-6817
+Wed, 30 Sep 2020 10:40:30 GMT - Debug - true, false, Guest-7489, 123456
+Wed, 30 Sep 2020 10:40:30 GMT - Debug - auth.service - signup with username: Guest-7489
+Wed, 30 Sep 2020 10:40:30 GMT - Debug - auth.route - new account created: {"isGuest":true,"isGoing":false,"password":"$2b$10$HLCVDdAnib47GzCWmB/t9.bI7ea17Se135a66s6XJMpPOZzUR2Phm","username":"Guest-7489","_id":"5f74609e5d44303d682f5de7"}
+Wed, 30 Sep 2020 10:40:30 GMT - Debug - auth.service - login with username: Guest-7489
+Wed, 30 Sep 2020 10:45:59 GMT - Info - Server is running on port: 3030
+Wed, 30 Sep 2020 10:47:04 GMT - Debug - true, false, Guest-5184, 123456
+Wed, 30 Sep 2020 10:47:04 GMT - Debug - auth.service - signup with username: Guest-5184
+Wed, 30 Sep 2020 10:47:04 GMT - Debug - auth.route - new account created: {"isGuest":true,"isGoing":false,"password":"$2b$10$JuMpAdxRkKuKXobllQpkcuTqawLBb3rfqwJdWrTG/RQyiTcnHIrYm","username":"Guest-5184","_id":"5f746228251ecf44189ec460"}
+Wed, 30 Sep 2020 10:47:04 GMT - Debug - auth.service - login with username: Guest-5184
+
+Wed, 30 Sep 2020 10:34:53 GMT - Info - Server is running on port: 3030
+
+Wed, 30 Sep 2020 10:35:35 GMT - Info - Server is running on port: 3030
+
+Wed, 30 Sep 2020 10:59:26 GMT - Info - Server is running on port: 3030
+Wed, 30 Sep 2020 11:01:24 GMT - Info - Server is running on port: 3030
+Wed, 30 Sep 2020 11:02:00 GMT - Debug - true, undefined, Guest-7715, 123456
+Wed, 30 Sep 2020 11:02:00 GMT - Debug - auth.service - signup with username: 123456
+Wed, 30 Sep 2020 11:02:00 GMT - Error - [SIGNUP] username and password are required!
+<<<<<<< HEAD
+Wed, 30 Sep 2020 11:09:45 GMT - Debug - true, undefined, Guest-9115, 123456
+Wed, 30 Sep 2020 11:09:45 GMT - Debug - auth.service - signup with username: 123456
+Wed, 30 Sep 2020 11:09:45 GMT - Error - [SIGNUP] username and password are required!
+Wed, 30 Sep 2020 11:15:33 GMT - Debug - true, undefined, Guest-7485, 123456
+Wed, 30 Sep 2020 11:15:33 GMT - Debug - auth.service - signup with username: 123456
+Wed, 30 Sep 2020 11:15:33 GMT - Error - [SIGNUP] username and password are required!
+Wed, 30 Sep 2020 11:16:00 GMT - Debug - true, undefined, Guest-9815, 123456
+Wed, 30 Sep 2020 11:16:00 GMT - Debug - auth.service - signup with username: 123456
+Wed, 30 Sep 2020 11:16:00 GMT - Error - [SIGNUP] username and password are required!
+Wed, 30 Sep 2020 11:22:08 GMT - Debug - true, undefined, Guest-2164, 123456
+Wed, 30 Sep 2020 11:22:08 GMT - Debug - auth.service - signup with username: 123456
+Wed, 30 Sep 2020 11:22:08 GMT - Error - [SIGNUP] username and password are required!
+Wed, 30 Sep 2020 11:22:41 GMT - Debug - true, undefined, Guest-4519, 123456
+Wed, 30 Sep 2020 11:22:41 GMT - Debug - auth.service - signup with username: 123456
+Wed, 30 Sep 2020 11:22:41 GMT - Error - [SIGNUP] username and password are required!
+Wed, 30 Sep 2020 11:22:46 GMT - Debug - true, undefined, Guest-6112, 123456
+Wed, 30 Sep 2020 11:22:46 GMT - Debug - auth.service - signup with username: 123456
+Wed, 30 Sep 2020 11:22:46 GMT - Error - [SIGNUP] username and password are required!
+Wed, 30 Sep 2020 11:23:04 GMT - Debug - true, undefined, Guest-7475, 123456
+Wed, 30 Sep 2020 11:23:04 GMT - Debug - auth.service - signup with username: 123456
+Wed, 30 Sep 2020 11:23:04 GMT - Error - [SIGNUP] username and password are required!
+Wed, 30 Sep 2020 11:25:07 GMT - Info - Server is running on port: 3030
+Wed, 30 Sep 2020 11:25:10 GMT - Debug - true, undefined, Guest-7613, 123456
+Wed, 30 Sep 2020 11:25:10 GMT - Debug - auth.service - signup with username: Guest-7613
+Wed, 30 Sep 2020 11:25:11 GMT - Debug - auth.route - new account created: {"isGuest":true,"password":"$2b$10$ePWBTfkNzoZCOJCODEaCZ.8yux7mzaS7FHwbj3NfhyZd7nEkr515m","username":"Guest-7613","_id":"5f746b17bfc0c64278aed940"}
+Wed, 30 Sep 2020 11:25:11 GMT - Debug - auth.service - login with username: Guest-7613
+Wed, 30 Sep 2020 11:30:37 GMT - Info - Server is running on port: 3030
+Wed, 30 Sep 2020 17:55:25 GMT - Info - Server is running on port: 3030
+Wed, 30 Sep 2020 17:56:20 GMT - Debug - true, undefined, Guest-9186, 123456
+Wed, 30 Sep 2020 17:56:20 GMT - Debug - auth.service - signup with username: Guest-9186
+Wed, 30 Sep 2020 17:56:20 GMT - Debug - auth.route - new account created: {"isGuest":true,"password":"$2b$10$WWLxpyUu5J0C2u5dvuFmc.FliwOihMV0lUQzvfd8I8Ke/jlIY7DY6","username":"Guest-9186","_id":"5f74c6c4a9339671c4f9b2bb"}
+Wed, 30 Sep 2020 17:56:20 GMT - Debug - auth.service - login with username: Guest-9186
+Wed, 30 Sep 2020 17:57:34 GMT - Debug - true, undefined, Guest-9885, 123456
+Wed, 30 Sep 2020 17:57:34 GMT - Debug - auth.service - signup with username: Guest-9885
+Wed, 30 Sep 2020 17:57:34 GMT - Debug - auth.route - new account created: {"isGuest":true,"password":"$2b$10$ltHt8DxmwpuJNFPYhamSBeY5jaoYqqraN0xngBskkHheXcDWj3MBK","username":"Guest-9885","_id":"5f74c70ea9339671c4f9b2bc"}
+Wed, 30 Sep 2020 17:57:34 GMT - Debug - auth.service - login with username: Guest-9885
+Sat, 03 Oct 2020 16:36:37 GMT - Info - Server is running on port: 3030
+Sat, 03 Oct 2020 16:38:48 GMT - Debug - true, undefined, Guest-5643, 123456
+Sat, 03 Oct 2020 16:38:48 GMT - Debug - auth.service - signup with username: Guest-5643
+Sat, 03 Oct 2020 16:38:48 GMT - Debug - auth.route - new account created: {"isGuest":true,"password":"$2b$10$Tcf3BHw4ZiMYerZJwqmh0uH5cgu/EksXlIAzyeXiAQYn1zqvASjv6","username":"Guest-5643","_id":"5f78a91875e8a27f1c6b43ea"}
+Sat, 03 Oct 2020 16:38:48 GMT - Debug - auth.service - login with username: Guest-5643
+=======
+Wed, 30 Sep 2020 11:07:23 GMT - Debug - true, undefined, Guest-4663, 123456
+Wed, 30 Sep 2020 11:07:23 GMT - Debug - auth.service - signup with username: 123456
+Wed, 30 Sep 2020 11:07:23 GMT - Error - [SIGNUP] username and password are required!
+Wed, 30 Sep 2020 11:12:50 GMT - Debug - true, undefined, Guest-8592, 123456
+Wed, 30 Sep 2020 11:12:50 GMT - Debug - auth.service - signup with username: 123456
+Wed, 30 Sep 2020 11:12:50 GMT - Error - [SIGNUP] username and password are required!
+Wed, 30 Sep 2020 11:29:00 GMT - Info - Server is running on port: 3030
+Wed, 30 Sep 2020 11:32:26 GMT - Debug - true, undefined, Guest-9595, 123456
+Wed, 30 Sep 2020 11:32:26 GMT - Debug - auth.service - signup with username: Guest-9595
+Wed, 30 Sep 2020 11:32:26 GMT - Debug - auth.route - new account created: {"isGuest":true,"password":"$2b$10$drdBbEG0wD0C6jVHOhAWF.Qr1y4cFRYeI2l6oIu9vgpUhYJkbiyyy","username":"Guest-9595","_id":"5f746ccaa9b01c3fa8277c99"}
+Wed, 30 Sep 2020 11:32:26 GMT - Debug - auth.service - login with username: Guest-9595
+Wed, 30 Sep 2020 11:36:02 GMT - Debug - true, undefined, Guest-4831, 123456
+Wed, 30 Sep 2020 11:36:02 GMT - Debug - auth.service - signup with username: Guest-4831
+Wed, 30 Sep 2020 11:36:02 GMT - Debug - auth.route - new account created: {"isGuest":true,"password":"$2b$10$tEbP1mdm4XNZdeIP/3gm4OlPwRzZSCki8IX5yOA//XeT6TSPfYReW","username":"Guest-4831","_id":"5f746da2a9b01c3fa8277c9a"}
+Wed, 30 Sep 2020 11:36:02 GMT - Debug - auth.service - login with username: Guest-4831
+Wed, 30 Sep 2020 11:37:37 GMT - Debug - [{"_id":"5f7457a45d44303d682f5de4","isGuest":true,"isGoing":false,"username":"Guest-3622"},{"_id":"5f7457d65d44303d682f5de5","isGuest":true,"isGoing":true,"username":"Guest-4783"},{"_id":"5f745b9a5d44303d682f5de6","isGuest":true,"isGoing":false,"username":"Guest-6817"},{"_id":"5f74609e5d44303d682f5de7","isGuest":true,"isGoing":true,"username":"Guest-7489"},{"_id":"5f746228251ecf44189ec460","isGuest":true,"isGoing":true,"username":"Guest-5184"},{"_id":"5f746ccaa9b01c3fa8277c99","isGuest":true,"username":"Guest-9595"},{"_id":"5f746da2a9b01c3fa8277c9a","isGuest":true,"username":"Guest-4831"}]
+Wed, 30 Sep 2020 11:37:54 GMT - Debug - auth.service - login with username: Liron
+Wed, 30 Sep 2020 11:38:14 GMT - Debug - false, undefined, Liron, w1a2s3d4
+Wed, 30 Sep 2020 11:38:14 GMT - Debug - auth.service - signup with username: Liron
+Wed, 30 Sep 2020 11:38:14 GMT - Debug - auth.route - new account created: {"isGuest":false,"password":"$2b$10$/EwSSLwuUaaf6ZIFWrISG.HDCYNFhNy2NiN7LUOZDFmrGqUfVyTte","username":"Liron","_id":"5f746e26a9b01c3fa8277c9b"}
+Wed, 30 Sep 2020 11:38:14 GMT - Debug - auth.service - login with username: Liron
+Wed, 30 Sep 2020 12:05:12 GMT - Debug - [{"_id":"5f7457a45d44303d682f5de4","isGuest":true,"isGoing":false,"username":"Guest-3622"},{"_id":"5f7457d65d44303d682f5de5","isGuest":true,"isGoing":true,"username":"Guest-4783"},{"_id":"5f745b9a5d44303d682f5de6","isGuest":true,"isGoing":false,"username":"Guest-6817"},{"_id":"5f74609e5d44303d682f5de7","isGuest":true,"isGoing":true,"username":"Guest-7489"},{"_id":"5f746228251ecf44189ec460","isGuest":true,"isGoing":true,"username":"Guest-5184"},{"_id":"5f746ccaa9b01c3fa8277c99","isGuest":true,"username":"Guest-9595"},{"_id":"5f746da2a9b01c3fa8277c9a","isGuest":true,"username":"Guest-4831"},{"_id":"5f746e26a9b01c3fa8277c9b","isGuest":false,"username":"Liron"}]
+Wed, 30 Sep 2020 12:05:23 GMT - Debug - false, undefined, roni, 12334
+Wed, 30 Sep 2020 12:05:23 GMT - Debug - auth.service - signup with username: roni
+Wed, 30 Sep 2020 12:05:24 GMT - Debug - auth.route - new account created: {"isGuest":false,"password":"$2b$10$tOlsjg0k8pwXKU08nzuaQ.r.o.6HV7JLoZU914zTu1ufjEQCKjlfW","username":"roni","_id":"5f747483a9b01c3fa8277c9c"}
+Wed, 30 Sep 2020 12:05:24 GMT - Debug - auth.service - login with username: roni
+Wed, 30 Sep 2020 12:20:56 GMT - Debug - true, undefined, Guest-1373, 123456
+Wed, 30 Sep 2020 12:20:56 GMT - Debug - auth.service - signup with username: Guest-1373
+Wed, 30 Sep 2020 12:20:56 GMT - Debug - auth.route - new account created: {"isGuest":true,"password":"$2b$10$IbY7zuT80wEYjA.X7.eSHOyBvG2pZ.Q8Giy.vw1G1m7Ra4KlYNqAW","username":"Guest-1373","_id":"5f747828a9b01c3fa8277c9d"}
+Wed, 30 Sep 2020 12:20:56 GMT - Debug - auth.service - login with username: Guest-1373
+Wed, 30 Sep 2020 12:21:00 GMT - Debug - [{"_id":"5f7457a45d44303d682f5de4","isGuest":true,"isGoing":false,"username":"Guest-3622"},{"_id":"5f7457d65d44303d682f5de5","isGuest":true,"isGoing":true,"username":"Guest-4783"},{"_id":"5f745b9a5d44303d682f5de6","isGuest":true,"isGoing":false,"username":"Guest-6817"},{"_id":"5f74609e5d44303d682f5de7","isGuest":true,"isGoing":true,"username":"Guest-7489"},{"_id":"5f746228251ecf44189ec460","isGuest":true,"isGoing":true,"username":"Guest-5184"},{"_id":"5f746ccaa9b01c3fa8277c99","isGuest":true,"username":"Guest-9595"},{"_id":"5f746da2a9b01c3fa8277c9a","isGuest":true,"username":"Guest-4831"},{"_id":"5f746e26a9b01c3fa8277c9b","isGuest":false,"username":"Liron"},{"_id":"5f747483a9b01c3fa8277c9c","isGuest":false,"username":"roni"},{"_id":"5f747828a9b01c3fa8277c9d","isGuest":true,"username":"Guest-1373"}]
+Wed, 30 Sep 2020 12:21:26 GMT - Debug - false, undefined, Lital, 1234
+Wed, 30 Sep 2020 12:21:26 GMT - Debug - auth.service - signup with username: Lital
+Wed, 30 Sep 2020 12:21:26 GMT - Debug - auth.route - new account created: {"isGuest":false,"password":"$2b$10$tHDj7iL0B/8Sfw8PM3vAseX0hGiOfwAa2fX15SXlVfLTRW6jUH8Ve","username":"Lital","_id":"5f747846a9b01c3fa8277c9e"}
+Wed, 30 Sep 2020 12:21:26 GMT - Debug - auth.service - login with username: Lital
+Wed, 30 Sep 2020 12:22:48 GMT - Info - Server is running on port: 3030
+Wed, 30 Sep 2020 12:22:56 GMT - Debug - true, undefined, Guest-5773, 123456
+Wed, 30 Sep 2020 12:22:56 GMT - Debug - auth.service - signup with username: Guest-5773
+Wed, 30 Sep 2020 12:22:57 GMT - Debug - auth.route - new account created: {"isGuest":true,"password":"$2b$10$TnVVtg1bGoiS49wvbzcy7.0KhvJwB2/TbC/Sh6TFRDO049ZVRxZ9m","username":"Guest-5773","_id":"5f7478a167e92b2a809a0674"}
+Wed, 30 Sep 2020 12:22:57 GMT - Debug - auth.service - login with username: Guest-5773
+Wed, 30 Sep 2020 12:35:39 GMT - Debug - [{"_id":"5f7457a45d44303d682f5de4","isGuest":true,"isGoing":false,"username":"Guest-3622"},{"_id":"5f7457d65d44303d682f5de5","isGuest":true,"isGoing":true,"username":"Guest-4783"},{"_id":"5f745b9a5d44303d682f5de6","isGuest":true,"isGoing":false,"username":"Guest-6817"},{"_id":"5f74609e5d44303d682f5de7","isGuest":true,"isGoing":true,"username":"Guest-7489"},{"_id":"5f746228251ecf44189ec460","isGuest":true,"isGoing":true,"username":"Guest-5184"},{"_id":"5f746ccaa9b01c3fa8277c99","isGuest":true,"username":"Guest-9595"},{"_id":"5f746da2a9b01c3fa8277c9a","isGuest":true,"username":"Guest-4831"},{"_id":"5f746e26a9b01c3fa8277c9b","isGuest":false,"username":"Liron"},{"_id":"5f747483a9b01c3fa8277c9c","isGuest":false,"username":"roni"},{"_id":"5f747828a9b01c3fa8277c9d","isGuest":true,"username":"Guest-1373"},{"_id":"5f747846a9b01c3fa8277c9e","isGuest":false,"username":"Lital"},{"_id":"5f7478a167e92b2a809a0674","isGuest":true,"username":"Guest-5773"}]
+Wed, 30 Sep 2020 12:36:01 GMT - Debug - [{"_id":"5f7457a45d44303d682f5de4","isGuest":true,"isGoing":false,"username":"Guest-3622"},{"_id":"5f7457d65d44303d682f5de5","isGuest":true,"isGoing":true,"username":"Guest-4783"},{"_id":"5f745b9a5d44303d682f5de6","isGuest":true,"isGoing":false,"username":"Guest-6817"},{"_id":"5f74609e5d44303d682f5de7","isGuest":true,"isGoing":true,"username":"Guest-7489"},{"_id":"5f746228251ecf44189ec460","isGuest":true,"isGoing":true,"username":"Guest-5184"},{"_id":"5f746ccaa9b01c3fa8277c99","isGuest":true,"username":"Guest-9595"},{"_id":"5f746da2a9b01c3fa8277c9a","isGuest":true,"username":"Guest-4831"},{"_id":"5f746e26a9b01c3fa8277c9b","isGuest":false,"username":"Liron"},{"_id":"5f747483a9b01c3fa8277c9c","isGuest":false,"username":"roni"},{"_id":"5f747828a9b01c3fa8277c9d","isGuest":true,"username":"Guest-1373"},{"_id":"5f747846a9b01c3fa8277c9e","isGuest":false,"username":"Lital"},{"_id":"5f7478a167e92b2a809a0674","isGuest":true,"username":"Guest-5773"}]
+Wed, 30 Sep 2020 12:36:08 GMT - Debug - auth.service - login with username: Limor
+Wed, 30 Sep 2020 12:36:19 GMT - Debug - false, undefined, Limor, 1234
+Wed, 30 Sep 2020 12:36:19 GMT - Debug - auth.service - signup with username: Limor
+Wed, 30 Sep 2020 12:36:19 GMT - Debug - auth.route - new account created: {"isGuest":false,"password":"$2b$10$DCRNSvOCi8evRKIHzqiwz.AwsHGIbzZUABg4yyDcOmZmH17J.i8Fe","username":"Limor","_id":"5f747bc367e92b2a809a0675"}
+Wed, 30 Sep 2020 12:36:19 GMT - Debug - auth.service - login with username: Limor
+Wed, 30 Sep 2020 12:46:13 GMT - Info - Server is running on port: 3030
+>>>>>>> fd61a1276be23515d44b4fc18658bbb733bc325e
+Sat, 03 Oct 2020 16:40:26 GMT - Info - Server is running on port: 3030
+Sat, 03 Oct 2020 16:48:51 GMT - Info - Server is running on port: 3030
+Sat, 24 Oct 2020 15:58:34 GMT - Info - Server is running on port: 3030
+Sat, 24 Oct 2020 15:59:12 GMT - Info - Server is running on port: 3030
+Sat, 24 Oct 2020 15:59:59 GMT - Info - Server is running on port: 3030

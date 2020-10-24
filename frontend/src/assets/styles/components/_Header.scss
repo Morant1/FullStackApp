@@ -1,0 +1,201 @@
+.header-container {
+    font-family: sans-serif;
+    height: 100vh;
+    background-image: url("../../img/background4.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+
+    .main-title {
+        font-weight: 600;
+        font-family: Montserrat, sans-serif;
+        position: absolute;
+        top: 35%;
+        left: 50%;
+        text-align: center;
+        transform: translate(-50%, -50%);
+        animation: type 2.5s steps(29);
+        overflow: hidden;
+        white-space: nowrap;
+        border-right: 4px solid #3be2ac;
+        color: #232a43;
+        margin: 10px 0;
+        font-size: 1.8rem;
+
+        .start-title {
+            font-size: 2.2rem;
+            color: #b400ff;
+            font-weight: 700;
+        }
+
+        .dote {
+            color: #3be2ac;
+        }
+    }
+
+    .slider-container {
+        width: 550px;
+        position: absolute;
+        bottom: -47px;
+        left: 3px;
+        font-family: Ubunto, serif;
+        transform: translateY(-50%);
+        overflow: hidden;
+    }
+
+    #slider {
+        animation: slide 15s;
+        animation-delay: 2s;
+        animation-fill-mode: forwards;
+        display: inline-flex;
+        transition: 0.5s;
+
+        .slider-msg {
+            width: 530px;
+            padding: 14px;
+            border-radius: 16px;
+            background-color: #232a43e0;
+            margin-left: 16px;
+
+            p {
+                color: #e8e8e8;
+                font-size: 1rem;
+                line-height: 25px;
+            }
+
+            a {
+                transition: all 0.3s;
+                display: inline-block;
+                text-decoration: none;
+                color: #ecc3e0;
+                background-color: #232a43;
+                font-size: 1rem;
+                padding: 5px 10px;
+                border-radius: 30px;
+            }
+            a:hover {
+                color: $clr4;
+                border: none;
+                background-color: white;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+                color: #3be2ac;
+                margin-bottom: 10px;
+            }
+        }
+    }
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-25%);
+    }
+    50% {
+        transform: translateX(-50%);
+    }
+    75% {
+        transform: translateX(-75%);
+    }
+    100% {
+        transform: translateX(-75%);
+    }
+}
+
+@keyframes type {
+    0% {
+        width: 0ch;
+    }
+    100% {
+        width: 29ch;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .header-container {
+        .main-title {
+            font-size: 1.3rem;
+        }
+        .slider-container {
+            width: 350px;
+        }
+
+        #slider {
+            .slider-msg {
+                width: 330px;
+
+                p {
+                    color: #e8e8e8;
+                    font-size: 1rem;
+                    line-height: 25px;
+                }
+
+                a {
+                    font-size: 0.8rem;
+                }
+
+                h1 {
+                    font-size: 1.2rem;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .header-container {
+        .main-title {
+            font-size: 1rem;
+        }
+    }
+}
+
+@media screen and (max-width: 460px) {
+    .header-container {
+        .main-title {
+            line-height: 1.2;
+            font-size: 1.2rem;
+            white-space: normal;
+            border-right: none;
+            animation: none;
+            
+
+            .start-title{
+                border-right: 4px solid #3be2ac;
+
+            }
+        }
+    }
+
+    
+}
+
+@media screen and (max-width: 400px) {
+    .header-container {
+        .slider-container {
+            width: 340px;
+        }
+
+        #slider {
+            .slider-msg {
+                margin: 0 5px;
+                width: 330px;
+            }
+        }
+
+        .main-title {
+            .start-title {
+                .dote {
+                    color:$clr4;
+                }
+            }
+        }
+    }
+
+    
+
+}

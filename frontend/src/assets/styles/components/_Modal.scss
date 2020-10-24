@@ -1,0 +1,63 @@
+.modal-wrapper {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    top: 20px;
+    left: 0;
+    z-index: 10;
+}
+.modal-content {
+    background: $clr1;
+    max-width: 60%;
+    min-width: 40%;
+    min-height: 400px;
+    margin: 0 auto; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    position: relative;
+    .edit-form {
+        
+        margin: 20px 40px 20px 40px;
+
+        .column{
+            flex-direction: column;
+        }
+    }
+}
+
+.editor-list > li:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+.editor-list li label,
+.editor-list li p {
+  padding: 8px;
+  font-weight: 300;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+}
+.editor-list > li > label,
+.editor-list li p {
+  flex: 1 0 120px;
+  max-width: 220px;
+}
+
+.editor-list li input:not([type='checkbox']),
+.editor-list li textarea {
+  padding: 5px;
+  border: none;
+}
+
+.editor-list li button {
+    margin-left: auto;
+    padding: 8px 16px;
+    border: none;
+    background: #333;
+    color: #f2f2f2;
+    text-transform: uppercase;
+    letter-spacing: .09em;
+    border-radius: 2px;
+  }

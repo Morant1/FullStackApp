@@ -1,0 +1,36 @@
+// Setup
+@import "setup/variables.scss";
+@import "setup/functions.scss";
+@import "setup/mixins.scss";
+@import "setup/typography.scss";
+
+// Basics
+@import "basics/helpers.scss";
+@import "basics/layout.scss";
+@import "basics/base.scss";
+@import "basics/links.scss";
+@import "basics/buttons.scss";
+
+// Components
+// @import "components/EventiFilter";
+@import "components/Navbar.scss";
+@import "components/EventsGrid.scss";
+@import "components/Info.scss";
+@import "components/HashtagScroll.scss";
+// @import "components/EventiPreview.scss";
+// @import "components/EventiDetails.scss";
+// @import "components/Chat.scss";
+// @import "components/EventiList.scss"; 
+// @import "components/SideNav.scss"; 
+@import "components/Footer.scss"; 
+// @import "components/UserNotification.scss"; 
+// @import "components/Modal.scss"; 
+@import "components/Header.scss"; 
+
+
+
+
+// Pages
+// @import "views/HomePage.scss";
+// @import "views/EventiAdd.scss";
+// @import "views/Login.scss";
