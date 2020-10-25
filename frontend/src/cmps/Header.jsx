@@ -8,7 +8,7 @@ export function Header() {
                 <div id="slider">
                     <div className="slider-msg">
                         <h1>What is all about</h1>
-                        <p>connect with influencial women around the globe in one click</p>
+                        <p>attend virtual events from home any time</p>
                         <a href="">Learn More</a>
                     </div>
                     <div className="slider-msg">

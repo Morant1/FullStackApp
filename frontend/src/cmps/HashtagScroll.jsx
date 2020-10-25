@@ -14,13 +14,15 @@ render() {
     "sport", "tennis", "soccer",
     "politics", "royality", "British royals", "president"];
     return (
-        <section className="hashtag-scroll-container">
-            <ul className="hashtag--list">
+        <section className="stripe">
+        <div className="hashtag-scroll-container">
+            <ul className="hashtag-list">
                 {arr.map(hashtag=><li key={hashtag}><i className="fas fa-hashtag"></i>{hashtag}</li>)}
             </ul>
 
 
 
+            </div>
             </section>
         )
     }
