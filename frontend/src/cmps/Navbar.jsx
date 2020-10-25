@@ -54,7 +54,8 @@ export class _Navbar extends Component {
                 <div className="navbar-links">
                     <ul>
                         <li><a href="/">Home</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Sign up</a></li>
+                        <li><a><i className="fas fa-bell"></i>  Activity</a></li>
                     </ul>
                 </div>
             </nav>
