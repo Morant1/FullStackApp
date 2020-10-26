@@ -12,9 +12,9 @@ async function getEventi(req, res) {
  //GET LIST
 
 async function getEventis(req, res) {
-    // const filterBy = req.query;
-    const eventis = await eventiService.query()
-    // logger.debug(events);
+    const filterBy = req.query;
+    const eventis = await eventiService.query(filterBy)
+    // logger.debug(eventis);
     res.send(eventis)
 }
 

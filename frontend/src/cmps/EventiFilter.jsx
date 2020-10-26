@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { withRouter } from "react-router";
 
-import { FormControl,Select, MenuItem, InputLabel } from '@material-ui/core';
-import {  BusService } from '../services/event-bus-service';
+import { FormControl, Select, MenuItem, InputLabel } from '@material-ui/core';
+import { BusService } from '../services/event-bus-service';
 
 
 
@@ -10,26 +10,34 @@ export class _EventiFilter extends Component {
     state = {
         filter: {
             date: 'all',
-            order: 'desc',
             sort: 'date',
             title: ''
 
         }
     }
-    unsubscribe;
+    // unsubscribe;
+
+    // componentDidMount() {
+    //     this.unsubscribe = BusService.on('searchUpdated',this.handleChange);
+
+    // }
+
+    // componentWillUnmount() {
+    //     this.unsubscribe()
+    // }
+    filterRef = React.createRef();
 
     componentDidMount() {
-        this.unsubscribe = BusService.on('searchUpdated',this.handleChange);
-       
-    }
+    setTimeout(() => {
+        this.filterRef.current.classList.add('trans');
 
-    componentWillUnmount() {
-        this.unsubscribe()
-    }
+    }, 200);
+}
+
     handleChange = ({ target }) => {
         const field = target.name;
         let value = target.value;
-        console.log(value)
+
 
         this.setState(prevState => ({ filter: { ...prevState.filter, [field]: value } }),
             () => {
@@ -38,38 +46,51 @@ export class _EventiFilter extends Component {
 
     }
 
+    redirectClick = (tag) => {
+        this.props.history.push(`/${tag}`)
+    }
+
 
     render() {
-        const { date, sort, order , isGoing } = this.state.filter
+        const { date, sort } = this.state.filter
         return (
-            <form className="main-filter-container">
-                <div className="filter flex justify-space">
-                <FormControl>
-                <InputLabel id="sort">Sort By</InputLabel>
-                <Select labelId="date" id="date" name="date" value={date} onChange={this.handleChange}>
-                    <MenuItem value="all">Any Time</MenuItem>
-                    <MenuItem value="today">Today</MenuItem>
-                     <MenuItem value="week">This week</MenuItem>
-                    <MenuItem value="month">This month</MenuItem>
-                    <MenuItem value="year">This year</MenuItem>
-                </Select>
+            <section className="main-filter-container" ref={this.filterRef}>
+                <ul className="tag-list">
+                    <li onClick={(ev) => { this.redirectClick('buisness') }}>Buisness</li>
+                    <li onClick={(ev) => { this.redirectClick('holywood') }}>Holywood</li>
+                    <li onClick={(ev) => { this.redirectClick('politics') }}>Politics</li>
+                    <li onClick={(ev) => { this.redirectClick('sports') }}>Sports</li>
+                    <li onClick={(ev) => { this.redirectClick('all') }}>All</li>
 
-                <Select labelId="sort" id="sortby" name="sort" value={sort} onChange={this.handleChange}>
-                    <MenuItem value="date">Date</MenuItem>
-                    <MenuItem value="rank">Rank</MenuItem>
-                    <MenuItem value="participants">Nu. of participants</MenuItem>
-                </Select>
-                <Select labelId="order" id="order" name="order" value={order} onChange={this.handleChange}>
-                    <MenuItem value="desc">Descending</MenuItem>
-                    <MenuItem value="asc">Ascending</MenuItem>
-                </Select>
-                </FormControl>
+                </ul>
+      
+                <div className="form-container">
+                    <FormControl>
+                        <InputLabel id="date">Date</InputLabel>
+                        <Select labelId="date" id="date" name="date" value={date} onChange={this.handleChange}>
+                            <MenuItem value="all">Any Time</MenuItem>
+                            <MenuItem value="today">Today</MenuItem>
+                            <MenuItem value="week">This week</MenuItem>
+                            <MenuItem value="month">This month</MenuItem>
+                            <MenuItem value="year">This year</MenuItem>
+                        </Select>
+                    </FormControl>
+
+                    <FormControl>
+                        <InputLabel id="sort">Sort By</InputLabel>
+                        <Select labelId="sort" id="sortby" name="sort" value={sort} onChange={this.handleChange}>
+                            <MenuItem value="date">Date</MenuItem>
+                            <MenuItem value="participants">Nu. of participants</MenuItem>
+                        </Select>
+                    </FormControl>
                 </div>
-            </form>
+            </section>
         )
     }
 }
 
 export const EventiFilter = withRouter(_EventiFilter)
+
+
 
 

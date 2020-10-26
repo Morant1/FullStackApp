@@ -28,9 +28,6 @@ export class _Navbar extends Component {
 
     }
 
-    componentWillUnmount() {
-
-    }
 
 
     render() {

@@ -15,67 +15,56 @@ module.exports = {
 
 
 
-async function query(filterBy = {}) {
+async function query(filterBy) {
+    console.log(filterBy)
     // const criteria = _buildCriteria(filterBy)
     const collection = await dbService.getCollection('eventi')
     try {
         const eventis = await collection.find().toArray();
-        return eventis;
-        // return _sortFilterEvents(events, filterBy.date, filterBy.sort, filterBy.order)
+        const filteredEventis =  _filteredEventis(eventis, filterBy.date)
+        return _sortedEventis(filteredEventis,filterBy.sort)
 
     } catch (err) {
-        console.log('ERROR: cannot find eventis')
+        console.log('ERROR: cannot find events')
         throw err;
     }
 }
 
-
-function _sortFilterEvents(events, date, sort, order) {
-    
-
-    if (!sort & !date & !order) return events;
+function _sortedEventis(eventis,sort) {
+    if (!sort) return eventis;
     let sortedEvents;
-    const todayStr = moment(Date.now()).format('L')
 
-    // DATES
-
-    if (date === 'all') sortedEvents = events;
-    if (date === 'today') {
-        sortedEvents = events.filter(eventi => {
-            return moment(eventi.startsAt).format('L') === todayStr;
+    if (sort === 'date') {
+    sortedEvents = eventis.sort((a, b) => {
+            return a.startsAt < b.startsAt ? -1 : a.startsAt > b.startsAt ? 1 : 0
         })
     }
+    if (sort === 'participants') {
+        sortedEvents = eventis.sort((a, b) => {
+            return a[sort].length > b[sort].length  ? -1 : a[sort].length  < b[sort].length ? 1 : 0
+        })
+    }
+    
+    return sortedEvents;
+    
+}
+
+function _filteredEventis(eventis, date) {
+    let filteredEventis;
+    if (date === 'all' || !date) filteredEventis = eventis;
+    const todayStr = moment(Date.now()).format('L')
+
+
+    if (date === 'today') {
+        filteredEventis = eventis.filter(eventi => {
+            return moment(eventi.startsAt).format('L') === todayStr;})
+    }
     if (date === 'week' || date === 'month' || date === 'year' ) {
-        sortedEvents = events.filter(eventi => {
+        filteredEventis = eventis.filter(eventi => {
             return moment(eventi.startsAt).isSame(Date.now(),date);
         })
     }
-
-    //ORDER
-    if (order === 'desc' || sort === 'date') {
-        sortedEvents = sortedEvents.sort((a, b) => {
-            return a['startsAt'] > b['startsAt'] ? -1 : a['startsAt'] < b['startsAt'] ? 1 : 0
-        })
-    }
-    if (order === 'asc') {
-        sortedEvents = sortedEvents.sort((a, b) => {
-            return a['startsAt'] < b['startsAt'] ? -1 : a['startsAt'] > b['startsAt'] ? 1 : 0
-        })
-    }
-    //SORT
-    if (sort === 'rank') {
-        sortedEvents = sortedEvents.sort((a, b) => {
-            return a['rank'] < b['rank'] ? -1 : a['rank'] < b['rank'] ? 1 : 0
-        })
-    }
-
-    if (sort === 'participants') {
-        sortedEvents = sortedEvents.sort((a, b) => {
-            return a['participants'].length > b['participants'].length  ? -1 : a['participants'].length  < b['participants'].length ? 1 : 0
-        })
-    }
-
-    return sortedEvents;
+    return filteredEventis;
 }
 
 
@@ -139,15 +128,15 @@ async function add(eventi) {
 
 
 
-function _buildCriteria(filterBy) {
-    const criteria = {};
-    if (filterBy.title) {
-        criteria.title = new RegExp(filterBy.title, 'ig');
-    }
+// function _buildCriteria(filterBy) {
+//     const criteria = {};
+//     if (filterBy.title) {
+//         criteria.title = new RegExp(filterBy.title, 'ig');
+//     }
 
  
-    return criteria;
-}
+//     return criteria;
+// }
 
 
 

@@ -1,5 +1,65 @@
-.filter {
-    display: flex;
-    flex-direction: column;
-    margin: 50px 10px 40px 10px;
+.main-filter-container {
+    position: fixed;
+    width: 120px;
+    z-index: 10;
+    // border-right: 0.5px solid #d3d3d3;
+    transform: translateX(-200%);
+    transition: transform 2s;
+    padding:0;
+    margin:0;
+    border-radius: 16px;
+    top: 85px;
+    left:5px;
+    &.trans {
+        transform: translateX(0);
+        border: 0.5px solid #d3d3d3;
+
+    }
+
+    .tag-list {
+        margin-bottom:15px;
+        display: flex;
+        justify-content: center;
+        align-content: space-between;
+        flex-wrap: wrap-reverse;
+        padding: 10px;
+
+        li {
+            margin: 12px 5px 10px 5px;
+            width: 110px;
+            padding: 0 8px;
+            box-shadow: 0.5px 0.5px 1.5px $clr4;
+            text-align: center;
+            border-radius: 3.25rem;
+            font-size: 1rem;
+            color: $clr4;
+        }
+        li:last-child {
+            margin-top: 10px;
+        }
+    }
+    li:hover {
+        cursor: pointer;
+        background-color: $clr4;
+        color: white;
+    }
+
+    .form-container {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        padding: 8px 8px 20px 8px;
+
+        .MuiFormControl-root {
+            margin-bottom: 10px;
+        }
+    }
 }
+
+// .my-events{
+//     background-color: $clr2;
+//     &:hover{
+//         background-color: $clr1 !important;
+//         color:$clr3 !important; 
+//     }
+

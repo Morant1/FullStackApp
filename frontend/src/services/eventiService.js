@@ -6,8 +6,16 @@ export const eventiService = {
 
 }
 
-function query() {
-    return httpService.get('eventi');
+function query(filterBy) {
+    let queryStr ='?';
+
+    for (const key in filterBy) {
+        queryStr += `${key}=${filterBy[key]}&`;
+
+    }
+    return httpService.get(`eventi${queryStr || ''}`);
   }
+
+  
 
   

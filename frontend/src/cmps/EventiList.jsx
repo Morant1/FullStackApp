@@ -14,14 +14,14 @@ export class EventiList extends Component {
     render() {
         const { eventis } = this.props;
         return (
-            <div>
+            <section className="main-list-container">
                 <ul className="eventis-list-grid">
                     {
                         eventis.map(eventi => <EventiPreview eventi={eventi} key={eventi._id} />)
                     }
                 </ul>
 
-            </div>
+            </section>
         )
     }
 }

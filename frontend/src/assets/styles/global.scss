@@ -21,7 +21,7 @@
 // @import "components/EventiDetails.scss";
 // @import "components/Chat.scss";
 @import "components/EventiList.scss"; 
-// @import "components/SideNav.scss"; 
+@import "components/EventiFilter.scss"; 
 @import "components/Footer.scss"; 
 // @import "components/UserNotification.scss"; 
 // @import "components/Modal.scss"; 
@@ -32,5 +32,6 @@
 
 // Pages
 // @import "views/HomePage.scss";
-// @import "views/EventiAdd.scss";
+@import "views/EventiApp.scss";
 // @import "views/Login.scss";
+

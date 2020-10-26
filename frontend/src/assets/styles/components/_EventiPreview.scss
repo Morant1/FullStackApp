@@ -16,9 +16,6 @@
         color: #232a43;
         height: 50px;
     }
-    .preview-subtitle {
-        font-size: rem(14px);
-    }
 
     .img-area {
         position: relative;
@@ -76,13 +73,22 @@
         //     border-radius: 0 10px 10px;
         // }
     }
-    .preview-time {
+
+
+    .icon-text {
         color: #666666;
         font-size: 0.9rem;
         margin-right: 5px;
+        margin-left: 3px;
+        &.time {
+            margin-left:0;
+        }
     }
 
+
     .event-creator-section {
+        display: flex;
+        align-items: center;
         .creator {
             margin-left: 5px;
             font-size: 0.7rem;
@@ -110,8 +116,3 @@
         background-position: 100% 0;
     }
 }
-//   @keyframes color-change {
-//     0% { color: #f6c0f2; }
-//     50% { color: #f6c0f2; }
-//     100% { color:#3be2ac; }
-//   }
