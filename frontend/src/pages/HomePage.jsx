@@ -27,8 +27,8 @@ export class _HomePage extends Component {
 
         <Header />
         <EventisGrid />
-        <PreviewScroll topEventis={topEventis} />
         <Info />
+        <PreviewScroll topEventis={topEventis} />
 
       </React.Fragment>
     );

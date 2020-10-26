@@ -27,6 +27,7 @@
 
 .scroller {
   padding-top: 20px;
+  padding-bottom: 10px;
 }
 
 .slide-title {
@@ -66,7 +67,7 @@
 :root {
   --stripe-size: 100px;
   --color1: transparent;
-  --color2: #b400ff08;
+  --color2: #e6e6fa7d;
   --duration: 2s;
 }
 
@@ -97,6 +98,7 @@
     border-top-right-radius: 37px;
     border-bottom-right-radius: 37px;
     padding-left: 10px;
+   
   }
 }
 .stripe::before {

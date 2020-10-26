@@ -1,23 +1,24 @@
 import React from 'react';
-// import SearchIcon from '@material-ui/icons/Search';
-import {  BusService } from '../services/event-bus-service';
-import { withRouter } from "react-router";
+import { BusService } from '../services/event-bus-service';
 
-function _GlobalSearch(props) {
+
+export function GlobalSearch(props) {
     return (
-        <div className="global-search">
-            {/* {props.location.pathname === '/' && <SearchIcon />} */}
-            <input className="navbar-input"
+        <div className="search-input">
+
+            <input 
                 type="text"
                 name="title"
                 autoComplete='off'
                 onChange={(ev) => {
-                    BusService.emit('searchUpdated', ev)}}
-                    placeholder = "Search for your event" />
-        </div>
+                    BusService.emit('searchUpdated', ev)
+                }}
+                placeholder="Search for your event" />
 
+            <i className="fas fa-search icon"></i>
+        </div>
     )
 }
 
-export const GlobalSearch = withRouter(_GlobalSearch)
+
 

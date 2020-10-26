@@ -16,11 +16,10 @@ module.exports = {
 
 
 async function query(filterBy) {
-    console.log(filterBy)
-    // const criteria = _buildCriteria(filterBy)
+    const criteria = _buildCriteria(filterBy)
     const collection = await dbService.getCollection('eventi')
     try {
-        const eventis = await collection.find().toArray();
+        const eventis = await collection.find(criteria).toArray();
         const filteredEventis =  _filteredEventis(eventis, filterBy.date)
         return _sortedEventis(filteredEventis,filterBy.sort)
 
@@ -44,7 +43,7 @@ function _sortedEventis(eventis,sort) {
             return a[sort].length > b[sort].length  ? -1 : a[sort].length  < b[sort].length ? 1 : 0
         })
     }
-    
+
     return sortedEvents;
     
 }
@@ -128,15 +127,15 @@ async function add(eventi) {
 
 
 
-// function _buildCriteria(filterBy) {
-//     const criteria = {};
-//     if (filterBy.title) {
-//         criteria.title = new RegExp(filterBy.title, 'ig');
-//     }
+function _buildCriteria(filterBy) {
+    const criteria = {};
+    if (filterBy.title) {
+        criteria.title = new RegExp(filterBy.title, 'ig');
+    }
 
  
-//     return criteria;
-// }
+    return criteria;
+}
 
 
 

@@ -12,6 +12,10 @@
             justify-content: center;
             align-items: center;
 
+            a {
+                color: $clr4;
+            }
+
             &:hover {
                 background-color: #b400ff17;
             }
@@ -22,8 +26,8 @@
 .events-grid {
     margin: 50px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-auto-rows: 150px;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-auto-rows: 200px;
     grid-gap: 5px;
 }
 
@@ -83,7 +87,7 @@
     transform: rotateY(180deg);
 }
 
-@media screen and (max-width: 1040px) {
+@media screen and (max-width: 1030px) {
     .events-grid {
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }

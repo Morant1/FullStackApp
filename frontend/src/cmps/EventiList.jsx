@@ -1,19 +1,14 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { EventiPreview } from './EventiPreview'
 
 
-export class EventiList extends Component {
 
-    componentDidMount() {
-        window.scroll({
-            top: 0,
-            left: 0,
-            behavior: 'smooth'
-        });
-    }
-    render() {
-        const { eventis } = this.props;
+export function EventiList({eventis}) {
+
+
         return (
+            <React.Fragment>
+
             <section className="main-list-container">
                 <ul className="eventis-list-grid">
                     {
@@ -22,7 +17,7 @@ export class EventiList extends Component {
                 </ul>
 
             </section>
+            </React.Fragment>
         )
-    }
 }
 

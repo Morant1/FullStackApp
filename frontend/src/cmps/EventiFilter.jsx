@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from "react-router";
 
 import { FormControl, Select, MenuItem, InputLabel } from '@material-ui/core';
-import { BusService } from '../services/event-bus-service';
+import { BusService } from '../services/event-bus-service'
 
 
 
@@ -15,29 +15,30 @@ export class _EventiFilter extends Component {
 
         }
     }
-    // unsubscribe;
 
-    // componentDidMount() {
-    //     this.unsubscribe = BusService.on('searchUpdated',this.handleChange);
-
-    // }
-
-    // componentWillUnmount() {
-    //     this.unsubscribe()
-    // }
     filterRef = React.createRef();
+    unsubscribe;
+    timeout;
 
+    
     componentDidMount() {
-    setTimeout(() => {
-        this.filterRef.current.classList.add('trans');
+        this.unsubscribe = BusService.on('searchUpdated',this.handleChange);
+        this.timeout = setTimeout(() => {
+            this.filterRef.current.classList.add('trans');
+            
+        }, 100);
+    }
+    
+    componentWillUnmount() {
+        this.unsubscribe()
+        clearTimeout(this.timeout);
 
-    }, 200);
-}
-
+    }
+    
     handleChange = ({ target }) => {
         const field = target.name;
         let value = target.value;
-
+      
 
         this.setState(prevState => ({ filter: { ...prevState.filter, [field]: value } }),
             () => {

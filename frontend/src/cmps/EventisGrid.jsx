@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { withRouter } from 'react-router';
+import { Link,withRouter } from 'react-router-dom';
 
 export class _EventisGrid extends Component {
 
@@ -22,10 +22,9 @@ export class _EventisGrid extends Component {
             <React.Fragment>
                 <section className="sub-nav">
                     <ul>
-                        <li><a>All events</a></li>
+                        <li><Link to={'/all'}>All events</Link></li>
                         <li><a>Your events</a></li>
-                        <li><a>Today</a></li>
-                        <li><a>This week</a></li>
+                        <li><Link to={'/today'}>Today</Link></li>
                     </ul>
                 </section>
 

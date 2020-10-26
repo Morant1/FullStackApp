@@ -24,7 +24,7 @@
 @import "components/EventiFilter.scss"; 
 @import "components/Footer.scss"; 
 // @import "components/UserNotification.scss"; 
-// @import "components/Modal.scss"; 
+@import "components/GlobalSearch.scss"; 
 @import "components/Header.scss"; 
 
 
@@ -33,5 +33,5 @@
 // Pages
 // @import "views/HomePage.scss";
 @import "views/EventiApp.scss";
-// @import "views/Login.scss";
+@import "views/Login.scss";
 

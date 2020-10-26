@@ -1,0 +1,46 @@
+.search-input {
+    background-color: #e6e6fa7d;
+    ;
+    border-radius: 16px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 30px;
+    text-align: center;
+    position: absolute;
+    right: 8px;
+    top: 80px;
+
+    input {
+        background-color: transparent;
+        border: none;
+        text-align: center;
+        width: 0;
+        color: $clr4;
+        outline: none;
+        animation: expand 2s linear;
+        animation-fill-mode: forwards;
+    }
+
+    .icon {
+        background-color: #a96cbd;
+        content: "\f002";
+        border-radius: 160px;
+        padding: 5px;
+    }
+}
+
+::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: $clr4;
+    opacity: 1; /* Firefox */
+}
+
+@keyframes expand {
+    0% {
+        width: 20px;
+    }
+    100% {
+        width: 190px;
+    }
+}

@@ -15,7 +15,8 @@
     }
 
     &.scrolled {
-        background-color: #232a4394;
+        // background-color: #232a4394;
+        background-color: #232a43d4;
 
         .brand-title {
             color: white;
@@ -49,6 +50,7 @@
     }
 
     .toggle-button {
+        cursor: pointer;
         position: absolute;
         top: 10px;
         right: 15px;

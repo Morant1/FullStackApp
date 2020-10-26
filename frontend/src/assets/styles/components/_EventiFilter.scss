@@ -26,12 +26,12 @@
 
         li {
             margin: 12px 5px 10px 5px;
-            width: 110px;
-            padding: 0 8px;
+            width: 90px;
+            // padding: 0 8px;
             box-shadow: 0.5px 0.5px 1.5px $clr4;
             text-align: center;
             border-radius: 3.25rem;
-            font-size: 1rem;
+            font-size: 0.98rem;
             color: $clr4;
         }
         li:last-child {
@@ -56,10 +56,4 @@
     }
 }
 
-// .my-events{
-//     background-color: $clr2;
-//     &:hover{
-//         background-color: $clr1 !important;
-//         color:$clr3 !important; 
-//     }
 
