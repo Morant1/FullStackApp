@@ -46,7 +46,8 @@ export class _Navbar extends Component {
                     <ul>
                         <li onClick={this.toggleBtn}><a href="/">Home</a></li>
                         <li onClick={this.toggleBtn}><Link to="/login">Sign up</Link></li>
-                        <li onClick={this.toggleBtn}><a><i className="fas fa-bell"></i>  Activity</a></li>
+                        <li onClick={this.toggleBtn}><a>Create</a></li>
+                        <li onClick={this.toggleBtn}><a><i className="fas fa-bell"></i></a></li>
                     </ul>
                 </div>
             </nav>

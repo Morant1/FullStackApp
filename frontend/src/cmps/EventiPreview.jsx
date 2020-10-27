@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from "react-router";
+import { Link,withRouter } from "react-router-dom";
 
 import { Avatar } from '@material-ui/core';
 
@@ -13,9 +13,12 @@ function _EventiPreview({ eventi, location }) {
         return new Date(eventi.startsAt).toLocaleDateString('he-IL')
     }
 
+
     return (
         <li className={`eventi-preview card ${location.pathname === '/' ? 'preview' : ''}`}>
+             <Link to={`/${eventi.tags[0]}/${eventi._id}`}>
             <div className="img-area">
+            <i className="far fa-heart beat"></i>
                 <img className="preview-img" alt="eventi-img" src={require(`../assets/img/${eventi.tags[0]}/${eventi.imgUrl}`)} />
                 <div className="wrapper">
                     <div className="hashtag"><i className="fas fa-hashtag"></i>{eventi.tags[0]}</div>
@@ -33,6 +36,7 @@ function _EventiPreview({ eventi, location }) {
                     <span className="creator">{eventi.createdBy.username.toUpperCase()}</span>
                 </div>
             </div>
+            </Link>
         </li>
     )
 }

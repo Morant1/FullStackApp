@@ -1,0 +1,173 @@
+.eventi-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    margin-right: 50px;
+    margin-left: 50px;
+    font-family: montserrat, sans-serif;
+    color: $clr4;
+
+    .details-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        .intro {
+            display: flex;
+            border: 1px solid lightgray;
+            justify-content: center;
+            align-items: center;
+            border-radius: 16px;
+            padding: 20px;
+            position: relative;
+
+            .actions {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                bottom: -17px;
+                right: 50px;
+                position: absolute;
+                color: white;
+
+                & > * {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: $clr4;
+                    margin: 3px 5px;
+                    height: 30px;
+                    padding: 10px;
+                    border-radius: 16px;
+                    font-size: 1rem;
+                    color: lavender;
+                    cursor: pointer;
+                }
+
+                .join {
+                    &:hover {
+                        background-color: lavender;
+                        color:$clr4;
+
+                    }
+                }
+
+                .beat {
+
+                    &:hover {
+                        animation:fa-beat 3s ease infinite;
+                        font-weight: 700;
+                    }
+                }
+            }
+
+            img {
+                object-fit: cover;
+                object-position: center;
+                height: 300px;
+                width: 300px;
+                filter: saturate(1.2);
+                border-radius: 50%;
+            }
+        }
+
+        .intro-details {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-direction: column;
+            max-width: 550px;
+            margin-left: 50px;
+
+            h1 {
+                line-height: 40px;
+                margin-bottom: 11px;
+                font-family: revert;
+                font-size: 1.5rem;
+            }
+
+            p {
+                margin-bottom: 20px;
+                color: #6b6565;
+                letter-spacing:0.25px
+            }
+
+            .creator {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 35px;
+                border: none;
+                padding-right: 5px;
+                margin-bottom: 15px;
+                h3 {
+                    font-size: 0.9rem;
+                    color: $clr4;
+                    max-width: 150px;
+                }
+
+                .avatar {
+                    background-color:lavender;
+                    font-size: 1rem;
+                    width: 35px;
+                    height: 35px;
+                    margin-right: 5px;
+                }
+            }
+
+            .tags {
+                display: flex;
+                justify-content: start;
+                align-items: center;
+                flex-wrap: wrap;
+
+                li {
+                    cursor: pointer;
+                    text-align: center;
+                    padding: 0 5px;
+                    margin: 5px;
+                    font-size: 1rem;
+                    color: $clr4;
+                    border-radius: 16px;
+                    box-shadow: -0.1px 0px 3px $clr4;
+                    transition: transform 0.3s;
+
+                    &:hover {
+                        transform: scale(1.08);
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+@keyframes fa-beat {
+    0% {
+      transform:scale(1);
+    }
+    5% {
+      transform:scale(1.15);
+    }
+    20% {
+      transform:scale(1);
+    }
+    30% {
+      transform:scale(1);
+    }
+    35% {
+      transform:scale(1.15);
+    }
+    50% {
+      transform:scale(1);
+    }
+    55% {
+      transform:scale(1.15);
+    }
+    70% {
+      transform:scale(1);
+    }
+  }

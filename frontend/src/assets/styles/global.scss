@@ -26,12 +26,13 @@
 // @import "components/UserNotification.scss"; 
 @import "components/GlobalSearch.scss"; 
 @import "components/Header.scss"; 
+@import "components/About.scss"; 
 
 
 
 
 // Pages
-// @import "views/HomePage.scss";
+@import "views/EventiDetails.scss";
 @import "views/EventiApp.scss";
 @import "views/Login.scss";
 

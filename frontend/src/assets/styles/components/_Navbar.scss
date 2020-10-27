@@ -63,15 +63,13 @@
         .bar {
             height: 3px;
             width: 105%;
+            box-shadow: 1px 1px 5px #3be2ac;
             background-color: $clr4;
             border-radius: 10px;
             transition: all 0.5s ease-in-out;
         }
 
         &.active {
-            .bar {
-                box-shadow: 1px 1px 5px #3be2ac;
-            }
             .bar:first-child {
                 transform: rotate(46deg) translate(12px, 0px);
             }

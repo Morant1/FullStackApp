@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 
 class _Login extends Component {
     state = {
-        isSignup:false,
+        isSignup:true,
     //     loginCred: {
     //         password: '',
     //         username: ''
@@ -92,7 +92,7 @@ class _Login extends Component {
     render() {
         const {isSignup} = this.state
         return (
-            <section className="login-container">
+            <section className="login-container" style={{backgroundImage:`url(${require("../assets/img/background7.jpg")})`}}>
                 <div className="form-modal">
 
                     <div className="form-toggle">

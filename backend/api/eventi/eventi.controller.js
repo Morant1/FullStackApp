@@ -5,7 +5,7 @@ const logger = require('../../services/logger.service')
 
 // GET SINGLE
 async function getEventi(req, res) {
-    const eventi = await eventService.getById(req.params.id)
+    const eventi = await eventiService.getById(req.params.id)
     res.send(eventi)
 }
 

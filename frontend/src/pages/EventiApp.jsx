@@ -61,7 +61,7 @@ export class _EventiApp extends Component {
           <iframe src="https://giphy.com/embed/55eL3Rlqxs1LCcd6ea" frameBorder="0" className="giphy-embed" allowFullScreen></iframe>
           {filterBy.date !== 'all' ? 
           <div>There's no events {filterBy.date !== 'today'? 'this':''} {filterBy.date}</div>
-          : 'There\'s no matching events to your search'}
+          : 'There\'s no matching events'}
           </div>}
         
         </React.Fragment>

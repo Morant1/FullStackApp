@@ -8,7 +8,7 @@ import {EventiApp} from './pages/EventiApp';
 // import {EventiAdd} from './pages/EventiAdd';
 // import {EventiEdit} from './pages/EventiEdit';
 import {HomePage} from './pages/HomePage';
-// import {EventiDetails} from './pages/EventiDetails';
+import {EventiDetails} from './pages/EventiDetails';
 import {Login} from './pages/Login';
 
 
@@ -19,6 +19,7 @@ function App() {
       <Router>
         <Navbar />
         <Switch>
+         <Route component={EventiDetails} path='/:tag/:_id' />
           <Route component={Login} path='/login' />
           <Route component={EventiApp} path='/:tag' />
           <Route component={HomePage} path='/' />

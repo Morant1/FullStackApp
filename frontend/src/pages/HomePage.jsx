@@ -6,6 +6,7 @@ import { EventisGrid } from '../cmps/EventisGrid'
 import { Header } from '../cmps/Header';
 import { Info } from '../cmps/Info';
 import { PreviewScroll } from '../cmps/PreviewScroll';
+import { About } from '../cmps/About';
 
 export class _HomePage extends Component {
 
@@ -29,6 +30,7 @@ export class _HomePage extends Component {
         <EventisGrid />
         <Info />
         <PreviewScroll topEventis={topEventis} />
+        <About/>
 
       </React.Fragment>
     );
