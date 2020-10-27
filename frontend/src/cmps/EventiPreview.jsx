@@ -6,7 +6,7 @@ import { Avatar } from '@material-ui/core';
 function _EventiPreview({ eventi, location }) {
 
     const getTime = () => {
-        return new Date(eventi.startsAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+        return new Date(eventi.startsAt).toLocaleString('en-US', { hour: 'numeric',minute:'numeric', hour12: true })
     }
 
     const getDate = () => {

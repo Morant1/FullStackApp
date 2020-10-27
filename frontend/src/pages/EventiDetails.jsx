@@ -26,6 +26,19 @@ class _EventiDetails extends Component {
 
   }
 
+  getDate = () => {
+    const {eventi} = this.state;
+    const time = new Date(eventi.startsAt).toLocaleString('en-US', { hour: 'numeric',minute:'numeric', hour12: true })
+    const date = new Date(eventi.startsAt).toLocaleDateString('he-IL')
+    return `${date} ,${time}`
+  }
+
+  calcParticipants = () => {
+    const {eventi} = this.state;
+    if (!eventi.capacity) return '';
+    return `(${eventi.capacity - eventi.participants.length} available)`;
+  }
+
 
   render() {
     const { eventi } = this.state
@@ -59,6 +72,13 @@ class _EventiDetails extends Component {
 
           </div>
           <div className="details-info"></div>
+          <ul>
+    <li><i class="fas fa-warehouse"></i>Capacity:  {eventi.capacity? eventi.capacity: 'unlimited'}</li>
+            <li><i class="far fa-calendar-alt"></i>Date and Time:  {this.getDate()}</li>
+            <li><i class="far fa-hourglass"></i>Duration:  {eventi.duration} hrs</li>
+            <li><i class="fas fa-map-marker-alt"></i>Location:  Online</li>
+    <li> <i class="fas fa-user-friends"></i>Participants:  {eventi.participants.length} {this.calcParticipants()}</li>
+          </ul>
         </div>
 
       </section>

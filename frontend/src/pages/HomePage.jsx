@@ -23,6 +23,7 @@ export class _HomePage extends Component {
 
   render() {
     const topEventis = this.getTopEventis();
+    if (!topEventis) return <div>Loading...</div>
     return (
       <React.Fragment>
 
