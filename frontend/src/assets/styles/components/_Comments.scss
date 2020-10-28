@@ -1,0 +1,103 @@
+.comments-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 50px;
+
+    .comment-box {
+        position: relative;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+        font-family: montserrat,sans-serif;
+        margin: 10px 0;
+        width: 100%;
+
+        .comment-content {
+            background: #FFF;
+            padding: 10px 10px;
+            font-size: 15px;
+            line-height: 1.5;
+            font-weight: normal;
+            color: #595959;
+            border-radius: 0 0 4px 4px;
+        }
+
+        .comment-head {
+            background: #9191c12b;
+            display: flex;
+            align-items: center;
+            padding: 5px;
+            border-bottom: 1px solid #E5E5E5;
+            border-radius: 4px 4px 0 0;
+
+            span {
+                float: left;
+                color: #999;
+                font-size: 13px;
+                position: relative;
+                top: 1px;
+            }
+        }
+
+        .comment-name {
+            color: #283035;
+            font-size: 14px;
+            font-weight: 700;
+            float: left;
+            margin-right: 10px;
+            a {
+                color: #283035;
+            }
+            
+        }
+    }
+
+    
+.MuiAvatar-root.avatar {
+    width: 30px;
+    margin-right: 10px;
+    height: 30px;
+    background-color:$clr4;
+    font-family: montserrat,sans-serif;
+    font-size: 1rem;
+}
+
+.input {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    margin: 20px;
+
+    i {
+        cursor: pointer;
+    }
+
+    input  {
+        border: none;
+    border-bottom: 1px solid black;
+    padding: 5px;
+    text-align: center;
+    font-size: 1rem;
+        margin-right:5px;
+        outline:none;
+
+        &::placeholder {
+            color:lightgray;
+        }
+    }
+}
+}
+
+
+
+
+
+// @media screen and (max-width: 400px) {
+//     .comments-list .comment-box {
+//         width: 60%;
+//     }
+// }
+
+
+

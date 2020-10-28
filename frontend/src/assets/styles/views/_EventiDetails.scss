@@ -7,6 +7,7 @@
     margin-left: 50px;
     font-family: montserrat, sans-serif;
     color: $clr4;
+    position: relative;
 
     .details-wrapper {
         display: flex;
@@ -22,13 +23,15 @@
             border-radius: 16px;
             padding: 20px;
             position: relative;
+            z-index: 6;
+            background-color: white;
 
             .actions {
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 bottom: -17px;
-                right: 50px;
+                right: 10px;
                 position: absolute;
                 color: white;
 
@@ -39,25 +42,26 @@
                     background-color: $clr4;
                     margin: 3px 5px;
                     height: 30px;
-                    padding: 10px;
+                    padding: 10px 12px;
                     border-radius: 16px;
                     font-size: 1rem;
                     color: lavender;
                     cursor: pointer;
-                }
+                    transition: box-shadow 0.3s;
 
-                .join {
                     &:hover {
-                        background-color: lavender;
-                        color:$clr4;
-
+                        box-shadow: 0 0 11px #8ec7ca;
                     }
                 }
 
-                .beat {
+                .active {
+                    background-color: lavender;
+                    color: $clr4;
+                }
 
+                .beat {
                     &:hover {
-                        animation:fa-beat 3s ease infinite;
+                        animation: fa-beat 3s ease infinite;
                         font-weight: 700;
                     }
                 }
@@ -71,6 +75,19 @@
                 filter: saturate(1.2);
                 border-radius: 50%;
             }
+
+            .MuiFormControlLabel-root {
+                padding: 0;
+                top: 0;
+                right: 10px;
+                margin: 0;
+                position: absolute;
+
+                span {
+                    font-family: "Montserrat";
+                    color: #232a43;
+                }
+            }
         }
 
         .intro-details {
@@ -79,7 +96,8 @@
             align-items: flex-start;
             flex-direction: column;
             max-width: 550px;
-            margin-left: 50px;
+            margin: 30px;
+            position: relative;
 
             h1 {
                 line-height: 40px;
@@ -91,7 +109,8 @@
             p {
                 margin-bottom: 20px;
                 color: #6b6565;
-                letter-spacing:0.25px
+                letter-spacing: 0.25px;
+                font-size: 1.1rem;
             }
 
             .creator {
@@ -105,12 +124,12 @@
                 h3 {
                     font-size: 0.9rem;
                     color: $clr4;
-                    max-width: 150px;
+                    // max-width: 150px;
                     line-height: 1.5;
                 }
 
                 .avatar {
-                    background-color:lavender;
+                    background-color: #d9d9fd;
                     font-size: 1rem;
                     width: 35px;
                     height: 35px;
@@ -125,7 +144,6 @@
                 flex-wrap: wrap;
 
                 li {
-                    cursor: pointer;
                     text-align: center;
                     padding: 0 5px;
                     margin: 5px;
@@ -141,34 +159,114 @@
                 }
             }
         }
+
+        .details-info {
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+            font-weight: 500;
+            justify-content: center;
+            flex-wrap: wrap;
+            height: 145px;
+            background-color: #e6e6fa47;
+            position: relative;
+            top: -16px;
+            z-index: 1;
+            padding: 20px 20px 0 20px;
+
+            li {
+                display: flex;
+                align-items: center;
+                margin: 6px 0;
+
+                .icon {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin: 0 15px;
+                    height: 40px;
+                    width: 40px;
+                    background-color: #d9d9fd;
+                    border-radius: 50%;
+                }
+            }
+        }
+
+        .next-prev {
+            display: flex;
+
+            .btn {
+                cursor: pointer;
+                margin: 10px;
+                font-size: 2rem;
+                transition: all .3s;
+
+                a {
+                    color:inherit;
+                    &:active, :hover,:visited {
+                        color:inherit;
+                    }
+                }
+
+                &:hover {
+                    transform:scale(1.05)
+                }
+            }
+        }
     }
 }
 
-
-
 @keyframes fa-beat {
     0% {
-      transform:scale(1);
+        transform: scale(1);
     }
     5% {
-      transform:scale(1.15);
+        transform: scale(1.15);
     }
     20% {
-      transform:scale(1);
+        transform: scale(1);
     }
     30% {
-      transform:scale(1);
+        transform: scale(1);
     }
     35% {
-      transform:scale(1.15);
+        transform: scale(1.15);
     }
     50% {
-      transform:scale(1);
+        transform: scale(1);
     }
     55% {
-      transform:scale(1.15);
+        transform: scale(1.15);
     }
     70% {
-      transform:scale(1);
+        transform: scale(1);
     }
-  }
+}
+
+@media screen and (max-width: 850px) {
+    .eventi-details .details-wrapper {
+        .intro {
+            flex-direction: column;
+
+            img {
+                margin-top: 25px;
+            }
+        }
+
+        .details-info {
+            height: auto;
+            padding: 50px 20px 20px 20px;
+        }
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .eventi-details .details-wrapper .intro-details {
+        p {
+            font-size: 0.9rem;
+        }
+        h1 {
+            font-size: 1.3rem;
+        }
+    }
+}

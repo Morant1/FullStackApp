@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 export class _UserNotifications extends Component {
     state = {
-        msgs: []
+        msgs: ["djdlglffh","zgddrkggggggggggggggggggggggggggg","sfsfsdgdgdg","sfgdggggggggggggggg","zgggggggggg","Fsfszff","F"]
     }
 
     unsubscribe;
@@ -20,23 +20,20 @@ export class _UserNotifications extends Component {
 
     render() {
         const { msgs } = this.state
-        if (!msgs) return 'Loading';
+        if (!msgs) return <div>Loading...</div>
         return (
             <div className="notification-container">
             
-                <ul className="notification-list flex">
+                <ul className="notification-list">
                     {msgs.map((msg, index) => {
                         return (
-                            <li key={index} className="notification-preview flex justify-center align-center">
-                                <div className="avatar-section">
-                                    <div className="user-preview">
-                                    <Avatar>{this.props.loggedInUser.username[0].toUpperCase()}</Avatar>
-                                    </div>
+                            <li key={index} className="notification-preview">
+                                <div className="avatar">
+                                    <Avatar>A</Avatar>
                                 </div>
                                 <div className="msg-body">
-                                    <span className="msg">{msg}</span>
-                                    <div className="notification-date">{new Date(Date.now()).toLocaleDateString("en-US")}
-                                    </div>
+                                    <div className="msg">{msg}</div>
+                                    <div className="notification-date">{new Date(Date.now()).toLocaleDateString("en-US")}</div>
                                 </div>
                             </li>
                         )

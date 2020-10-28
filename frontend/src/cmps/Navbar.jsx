@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from "react-router";
+import { UserNotifications } from './UserNotifications';
 
 
 
 export class _Navbar extends Component {
 
     state = {
-        isActive: false
+        isActive: false,
+        isNotify:false
     }
 
     navRef = React.createRef();
@@ -25,10 +27,13 @@ export class _Navbar extends Component {
     toggleBtn = () => {
         this.setState({isActive: !this.state.isActive})
     }
+    toggleNotification = () => {
+        this.setState({isNotify: !this.state.isNotify},()=>{console.log(this.state.isNotify)})
+    }
 
 
     render() {
-        const {isActive} = this.state;
+        const {isActive,isNotify} = this.state;
         return (
             <nav ref={this.navRef} className="navbar hamburger">
                 <Link to="/">
@@ -44,10 +49,11 @@ export class _Navbar extends Component {
                 </a>
                 <div className={`navbar-links ${isActive? 'active' : ''}`}>
                     <ul>
-                        <li onClick={this.toggleBtn}><a href="/">Home</a></li>
+                        <li onClick={this.toggleBtn}><Link to="/">Home</Link></li>
                         <li onClick={this.toggleBtn}><Link to="/login">Sign up</Link></li>
                         <li onClick={this.toggleBtn}><a>Create</a></li>
-                        <li onClick={this.toggleBtn}><a><i className="fas fa-bell"></i></a></li>
+                        <li onClick={this.toggleNotification}><a><i className="fas fa-bell"></i></a></li>
+                        {isNotify && <UserNotifications/>} 
                     </ul>
                 </div>
             </nav>
