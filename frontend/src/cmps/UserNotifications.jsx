@@ -28,7 +28,7 @@ export class _UserNotifications extends Component {
                     return (
                         <li key={index} className="notification-preview">
                             <div className="avatar">
-                                <Avatar>A</Avatar>
+                                <Avatar>{this.props.user.username[0].toUpperCase()}</Avatar>
                             </div>
                             <div className="msg-body">
                                 <div className="msg-notifiction">{msg}</div>
@@ -37,16 +37,16 @@ export class _UserNotifications extends Component {
                         </li>
                     )
                 }) :
-                        <li className="notification-preview">
-                            <div className="avatar">
-                                <Avatar>A</Avatar>
-                            </div>
-                            <div className="msg-body">
-                                <div className="notification-msg">No notificatons yet</div>
-                                <div className="notification-date">{new Date(Date.now()).toLocaleDateString("en-US")}</div>
-                            </div>
-                        </li>
-                    }
+                    <li className="notification-preview">
+                        <div className="avatar">
+                        {this.props.user && <Avatar>{this.props.user.username[0].toUpperCase()}</Avatar>}
+                        </div>
+                        <div className="msg-body">
+                            <div className="notification-msg">No notificatons yet</div>
+                            <div className="notification-date">{new Date(Date.now()).toLocaleDateString("en-US")}</div>
+                        </div>
+                    </li>
+                }
 
             </ul>
 

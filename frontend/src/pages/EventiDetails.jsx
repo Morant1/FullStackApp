@@ -16,7 +16,6 @@ import { utils } from '../services/utils';
 class _EventiDetails extends Component {
   state = {
     eventi: null,
-    isJoined: false,
     isEdit: false,
     checkedB: false,
     isChat: false,
@@ -109,6 +108,7 @@ class _EventiDetails extends Component {
     eventi.comments = [...eventi.comments, comment];
     this.props.updateEventi(eventi);
     this.setState({ eventi })
+    BusService.emit('notify', { msg: `You left a comment at ${eventi.createdBy.username} event`})
   }
   removeComment = (commentId) => {
     console.log(commentId)
@@ -122,7 +122,7 @@ class _EventiDetails extends Component {
   }
 
   render() {
-    const { eventi, checkedB, isJoined, isEdit, nextId, prevId } = this.state
+    const { eventi, checkedB, isEdit, nextId, prevId } = this.state
     if (!eventi) return <div>Loading...</div>
 
 
@@ -144,7 +144,7 @@ class _EventiDetails extends Component {
                   color="primary"
                 />
               }
-              label="Hide"
+              label="Effect"
             />
 
             <div className="intro-details">
@@ -192,7 +192,20 @@ class _EventiDetails extends Component {
 
         </div>
 
-        {isJoined && <Chat toggleChat={this.handleChange} />}
+        {this.isGoing() && <Chat toggleChat={this.handleChange} user={this.props.loggedInUser} eventi={eventi} />}
+
+        {checkedB && <div id="background-wrap">
+    <div className="bubble x1"></div>
+    <div className="bubble x2"></div>
+    <div className="bubble x3"></div>
+    <div className="bubble x4"></div>
+    <div className="bubble x5"></div>
+    <div className="bubble x6"></div>
+    <div className="bubble x7"></div>
+    <div className="bubble x8"></div>
+    <div className="bubble x9"></div>
+    <div className="bubble x10"></div>
+</div>}
       </section>
 
     )

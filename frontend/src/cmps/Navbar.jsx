@@ -63,7 +63,7 @@ export class _Navbar extends Component {
                         <li onClick={this.toggleBtn}><a>Create</a></li>
                         <li onClick={this.toggleNotification}><a><i className="fas fa-bell"></i></a></li>
                         {isNotify && <div className={`notification-container ${isNotify ? 'visible' : ''}`}>
-                            <UserNotifications />
+                            <UserNotifications user={loggedInUser} />
                         </div>}
                     </ul>
                 </div>

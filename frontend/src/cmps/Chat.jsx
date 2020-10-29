@@ -3,96 +3,92 @@ import socketService from '../services/socketService';
 import { Avatar, Button, TextField } from '@material-ui/core';
 
 export class Chat extends Component {
-  // state = {
-  //   typeMsg: '',
-  //   serverSideTyping: '',
-  //   msg: { from: this.props.user, txt: '' },
-  //   msgs: [],
-  //   topic: this.props.eventi._id
-  // };
+  state = {
+    typeMsg: '',
+    msg: { from: this.props.user.username, txt: '' },
+    msgs: [],
+    topic: this.props.eventi._id
+  };
 
   componentDidMount() {
-    // socketService.setup();
-    // socketService.emit('chat topic', this.state.topic);
-    // socketService.on('chat addMsg', this.addMsg);
-    // socketService.on('typing Msg', this.serverSideTyping);
-    // socketService.on('chat history', msgs => {
-    //   this.setState({ msgs: msgs[this.state.topic] || [] });
+    socketService.setup();
+    socketService.emit('chat topic', this.state.topic);
+    socketService.on('chat addMsg', this.addMsg);
+    socketService.on('chat history', msgs => {
+      this.setState({ msgs: msgs[this.state.topic] || [] });
 
-    // })
+    })
   }
 
-  // componentWillUnmount() {
-  //   socketService.off('chat addMsg', this.addMsg);
-  //   socketService.terminate();
-  // }
-
-  // serverSideTyping = msg => {
-  //   this.setState({ serverSideTyping: msg });
-  // }
-  // addMsg = newMsg => {
-  //   this.setState(prevState => ({ msgs: [...prevState.msgs, newMsg] }));
-  // };
+  componentWillUnmount() {
+    socketService.off('chat addMsg', this.addMsg);
+    socketService.terminate();
+  }
 
 
-  // sendMsg = ev => {
-  //   ev.preventDefault();
-  //   console.log("ev", ev)
-  //   socketService.emit('chat newMsg', this.state.msg);
-  //   this.setState({ msg: { ...this.state.msg, txt: '' }, typeMsg: '' }, () => console.log(this.state));
-  // };
+  addMsg = newMsg => {
+    this.setState(prevState => ({ msgs: [...prevState.msgs, newMsg] }));
+  };
 
-  // msgHandleFocus = ev => {
-  //   const typingMsg = `${this.state.msg.from.username} is typing...`;
-  //   socketService.emit('typing Msg', typingMsg);
-  //   this.setState({ typeMsg: typingMsg })
-  // }
 
-  // msgHandleBlur = ev => {
-  //   const typingMsg = '';
-  //   socketService.emit('typing Msg', typingMsg);
-  //   this.setState({ typeMsg: typingMsg })
-  // }
+  sendMsg = ev => {
+    ev.preventDefault();
+    socketService.emit('chat newMsg', this.state.msg);
+    this.setState({ msg: { ...this.state.msg, txt: '' }, typeMsg: '' }, () => console.log(this.state));
+  };
 
-  // msgHandleChange = ev => {
-  //   const { name, value } = ev.target;
+  msgHandleFocus = ev => {
+    const typingMsg = `${this.props.user.username} is typing...`;
+    socketService.emit('typing Msg', typingMsg);
+    this.setState({ typeMsg: typingMsg })
+  }
 
-  //   this.setState(prevState => {
-  //     return {
-  //       msg: {
-  //         ...prevState.msg,
-  //         [name]: value
-  //       }
-  //     };
-  //   });
-  // };
+  msgHandleBlur = ev => {
+    const typingMsg = '';
+    socketService.emit('typing Msg', typingMsg);
+    this.setState({ typeMsg: typingMsg })
+  }
+
+  msgHandleChange = ev => {
+    const { name, value } = ev.target;
+    console.log(name,value)
+
+    this.setState(prevState => {
+      return {
+        msg: {
+          ...prevState.msg,
+          [name]: value
+        }
+      };
+    });
+  };
 
   render() {
     return (
       <section className="msger">
         <header className="msger-header">
           <div className="msger-header-title">
-            <i className="fas fa-comment-alt"></i></div>
+            <i className="fas fa-comment-alt"></i>Leave a massege to {this.props.eventi.createdBy.username}
+        </div>
           <div className="msger-header-options">
-            <span><i className="far fa-times-circle" ></i></span>
+            <span onClick={this.props.openChat}><i className="far fa-times-circle"></i></span>
           </div>
         </header>
         <main className="msger-chat">
-          {/* {this.state.msgs && this.state.msgs.map((msg, idx) => {
+          {this.state.msgs && this.state.msgs.map((msg, idx) => {
             return (
-              <div className={`msg ${idx % 2 === 0 ? 'left' : 'right'}-msg`}key={idx}>
+              <div className={`msg left`} key={idx}>
                 <div
                   className="msg-img"
                   style={{
                     backgroundImage:
-                      `url(${idx % 2 === 0 ? 'https://image.flaticon.com/icons/svg/327/327779.svg'
-                        : 'https://image.flaticon.com/icons/svg/145/145867.svg'})`
+                        `url(${require('../assets/img/women.svg')})`
                   }}>
                 </div>
 
                 <div className="msg-bubble">
                   <div className="msg-info">
-                    <div className="msg-info-name"><Avatar>{this.state.msg.from.username[0].toUpperCase()}</Avatar></div>
+                    <div className="msg-info-name"><Avatar>{msg.from[0].toUpperCase()}</Avatar></div>
                     <div className="msg-info-time">{new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</div>
                   </div>
 
@@ -101,19 +97,19 @@ export class Chat extends Component {
                   </div>
                 </div>
               </div>)
-          })} */}
+          })}
         </main>
 
         <form className="msger-inputarea" onSubmit={this.sendMsg}>
-          <div className='typing' style={{ minHeight: '25px', color: 'black' }}>TYPING</div>
+          <div className='typing' style={{ minHeight: '25px', color: 'black' }}>{this.state.typeMsg ? this.state.typeMsg : ''}</div>
           <input
             className='msger-input'
             style={{ color: 'black' }}
             type="text"
-            // value={this.state.msg.txt}
-            // onChange={this.msgHandleChange}
-            // onFocus={this.msgHandleFocus}
-            // onBlur={this.msgHandleBlur}
+            value={this.state.msg.txt}
+            onChange={this.msgHandleChange}
+            onFocus={this.msgHandleFocus}
+            onBlur={this.msgHandleBlur}
             name="txt"
             autoComplete='off'
             placeholder="Enter your message..."

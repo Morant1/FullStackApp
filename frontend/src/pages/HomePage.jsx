@@ -14,8 +14,18 @@ export class _HomePage extends Component {
 
 
   componentDidMount() {
-    this.props.loadEventis();
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
 
+    this.props.loadEventis();
+    this.createGuest()
+
+  }
+
+  createGuest = () => {
     if (!this.props.loggedInUser) {
       const signupCreds =
       {
@@ -26,8 +36,12 @@ export class _HomePage extends Component {
 
       this.props.signup(signupCreds);
     }
-
   }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.loggedInUser !== this.props.loggedInUser) {
+      this.createGuest()
+  }}
 
   getTopEventis = () => {
     const eventis = [...this.props.eventis]

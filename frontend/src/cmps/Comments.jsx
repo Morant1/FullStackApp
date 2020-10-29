@@ -38,7 +38,7 @@ export class Comments extends Component{
                         <Avatar className="avatar">{comment.createdBy.username[0].toUpperCase()}</Avatar>
                         <h6 className="comment-name">{comment.createdBy.username}</h6>
                         <span className="time">{new Date(comment.createdAt).toLocaleDateString('he-IL')}</span>
-                        {comment.createdBy._id === user._id && <span onClick={()=>{this.props.removeComment(comment.id)}} className="remove"><i class="fas fa-trash"></i></span>}
+                        {comment.createdBy._id === user._id && <span onClick={()=>{this.props.removeComment(comment.id)}} className="remove"><i className="fas fa-trash"></i></span>}
                     </div>
                     <h3 className="comment-content">{comment.txt}
                     </h3>
