@@ -63,15 +63,17 @@ export class Chat extends Component {
     });
   };
 
+
+
   render() {
     return (
       <section className="msger">
         <header className="msger-header">
-          <div className="msger-header-title">
-            <i className="fas fa-comment-alt"></i>Leave a massege to {this.props.eventi.createdBy.username}
+        <img src={require(`../assets/img/${this.props.eventi.tags[0]}/${this.props.eventi.imgUrl}`)}/>
+          <div className="msger-header-title">Leave a massege to {this.props.eventi.createdBy.username}
         </div>
           <div className="msger-header-options">
-            <span onClick={this.props.openChat}><i className="far fa-times-circle"></i></span>
+            <span onClick={()=>{this.props.toggleChat('isChat')}}><i className="far fa-times-circle"></i></span>
           </div>
         </header>
         <main className="msger-chat">

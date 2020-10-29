@@ -11,34 +11,41 @@
   z-index: 11;
   position: fixed;
   bottom: 0;
-  right: 0;
+  right: 5px;
   font-family: montserrat,sans-serif;
-  height: 380px;
+  height: 450px;
   display: flex;
   flex-flow: column wrap;
   justify-content: space-between;
-  width: 100%;
-  max-width: 380px;
-  margin: 0px 10px;
   box-shadow: 0 15px 15px -5px rgba(0, 0, 0, 0.2);
-}
 
+  
 .msger-header {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: space-around;
   padding: 12px;
   background: #232a43;
   color: white;
+
+  img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    object-position: center;
+    margin-right: 5px;
+    border-radius: 28px;
+  }
 }
 
 .msger-chat {
-  flex: 1;
-  overflow-y: auto;
-  padding: 10px;
-  overflow-y: scroll;
-  overflow-x: hidden;
-}
-.msger-chat::-webkit-scrollbar {
+  flex: 1 1;
+    overflow-y: auto;
+    padding: 10px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    .msger-chat::-webkit-scrollbar {
   width: 6px;
 }
 .msger-chat::-webkit-scrollbar-track {
@@ -47,6 +54,13 @@
 .msger-chat::-webkit-scrollbar-thumb {
   background: #bdbdbd;
 }
+}
+
+}
+
+
+
+
 .msg {
   display: flex;
   align-items: flex-end;
@@ -57,6 +71,7 @@
 }
 .msg-img {
   width: 50px;
+  filter: hue-rotate(263deg);
   height: 50px;
   margin-right: 10px;
   background: #ddd;
@@ -64,14 +79,17 @@
   background-position: center;
   background-size: cover;
   border-radius: 50%;
+
 }
 .msg-bubble {
-  max-width: 370px;
+  max-width: 350px;
   color: #232a43;
   padding: 5px;
+  width: 350px;
   border-radius: 15px;
   background: #f2f1f1;
 }
+
 .msg-info {
   display: flex;
   justify-content: space-between;
@@ -81,6 +99,24 @@
 .msg-info-name {
   margin-right: 10px;
   font-weight: bold;
+
+  .MuiAvatar-root {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    font-family: montserrat,sans-serif;
+    align-items: center;
+    font-size: 1rem;
+    align-items: center;
+    flex-shrink: 0;
+    user-select: none;
+    border-radius: 50%;
+    justify-content: center;
+    background-color: $clr4;
+    color:white;
+}
 }
 .msg-info-time {
   font-size: 0.85em;
@@ -120,17 +156,20 @@
 .msger-input {
   flex: 1;
   background: darkgray;
+  font-family: montserrat,sans-serif;
 }
 .msger-send-btn {
   margin-left: 10px;
-  background: $clr4;
-  color: $clr4;
-  font-weight: bold;
+  background: #232a43;
+  color: white;
+  font-weight: normal;
+  font-family: montserrat,sans-serif;
   cursor: pointer;
   transition: background-color 0.23s;
 }
+
 .msger-send-btn:hover {
-  background-color: $clr4;
+  background-color: darkgray;
   color:white; 
 }
 
@@ -150,3 +189,17 @@
 .msger-header i {
   cursor: pointer;
 }
+
+.msg-text {
+  word-break: break-all;
+}
+
+.msger-header-title {
+  margin-right: 5px
+}
+@media screen and (max-width: 430px) {
+  .msger{
+    right: 0;
+  }
+}
+
