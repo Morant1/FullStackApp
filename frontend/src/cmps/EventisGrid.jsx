@@ -23,7 +23,7 @@ export class _EventisGrid extends Component {
                 <section className="sub-nav">
                     <ul>
                         <li><Link to={'/all'}>All events</Link></li>
-                        <li><a>Your events</a></li>
+                        <li><Link to={'/attend'}>Attending</Link></li>
                         <li><Link to={'/today'}>Today</Link></li>
                     </ul>
                 </section>

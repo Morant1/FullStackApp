@@ -30,9 +30,19 @@
             padding: 5px;
             border-bottom: 1px solid #E5E5E5;
             border-radius: 4px 4px 0 0;
+            position: relative;
 
-            span {
-                float: left;
+            .remove {
+                color: #232a43;
+                cursor: pointer;
+                position: absolute;
+                right: 10px;
+                top: 10px;
+                font-weight: bold;
+                font-size: 0.8rem;
+            }
+
+            .time {
                 color: #999;
                 font-size: 13px;
                 position: relative;
@@ -58,8 +68,9 @@
     width: 30px;
     margin-right: 10px;
     height: 30px;
-    background-color:$clr4;
+    background-image: linear-gradient(366deg,#232a43,#1614a7,#232a43);
     font-family: montserrat,sans-serif;
+    box-shadow: 0 0 3px black;
     font-size: 1rem;
 }
 

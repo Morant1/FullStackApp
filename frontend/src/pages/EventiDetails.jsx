@@ -11,6 +11,7 @@ import { Avatar } from '@material-ui/core';
 import { Chat } from '../cmps/Chat'
 import { eventiService } from '../services/eventiService';
 import { BusService } from '../services/event-bus-service'
+import { utils } from '../services/utils';
 
 class _EventiDetails extends Component {
   state = {
@@ -49,26 +50,27 @@ class _EventiDetails extends Component {
   isGoing = () => {
     const participant = this.state.eventi.participants.find(participant => participant._id === this.props.loggedInUser._id);
     return participant;
-}
+  }
 
-addParticipant = () => {
+  addParticipant = () => {
     const participant = this.isGoing();
-    let eventi = {...this.state.eventi};
+    let eventi = { ...this.state.eventi };
 
     if (!participant) {
       eventi.participants = [this.props.loggedInUser, ...eventi.participants]
       BusService.emit('notify', { msg: `You are going to ${eventi.createdBy.username} event` })
     } else {
       eventi.participants = eventi.participants.filter(participant => {
-      return participant._id !==  this.props.loggedInUser._id})
+        return participant._id !== this.props.loggedInUser._id
+      })
 
       BusService.emit('notify', { msg: `You are not going to ${eventi.createdBy.username} event anymore` })
     }
     this.props.updateEventi(eventi)
     this.setState({ eventi })
 
-  
-}
+
+  }
 
 
   getDate = () => {
@@ -94,6 +96,31 @@ addParticipant = () => {
     this.setState({ [name]: !this.state[name] });
   }
 
+  addComment = (txt) => {
+    const { loggedInUser } = this.props;
+    const eventi = { ...this.state.eventi }
+    const comment = {
+      id: utils.makeId(),
+      createdAt: Date.now(),
+      createdBy: { _id: loggedInUser._id, username: loggedInUser.username },
+      txt
+    }
+
+    eventi.comments = [...eventi.comments, comment];
+    this.props.updateEventi(eventi);
+    this.setState({ eventi })
+  }
+  removeComment = (commentId) => {
+    console.log(commentId)
+    const eventi = { ...this.state.eventi }
+    eventi.comments = eventi.comments.filter(comment => {
+      return comment.id !== commentId
+    });
+
+    this.props.updateEventi(eventi);
+    this.setState({ eventi })
+  }
+
   render() {
     const { eventi, checkedB, isJoined, isEdit, nextId, prevId } = this.state
     if (!eventi) return <div>Loading...</div>
@@ -102,9 +129,9 @@ addParticipant = () => {
     return (
 
       <section className="eventi-details">
-        
+
         <div className="details-wrapper">
-    <div className="navigation"><Link to={`/`}>Home</Link><span>&gt;</span><Link to={`/${eventi.tags[0]}`}>{eventi.tags[0]}</Link></div>
+          <div className="navigation"><Link to={`/`}>Home</Link><span>&gt;</span><Link to={`/${eventi.tags[0]}`}>{eventi.tags[0]}</Link></div>
 
           <div className="intro">
             <img className={this.isGoing() && 'round'} src={require(`../assets/img/${eventi.tags[0]}/${eventi.imgUrl}`)} alt="event-creator" />
@@ -135,7 +162,7 @@ addParticipant = () => {
             <div className="actions">
               <div className={isEdit ? 'active' : 'passive'} onClick={() => { this.handleChange('isEdit') }}>EDIT</div>
               <i className="icon far fa-heart beat"></i>
-              <div className={this.isGoing() ? 'active' : 'passive'}  onClick={this.addParticipant}>JOIN</div>
+              <div className={this.isGoing() ? 'active' : 'passive'} onClick={this.addParticipant}>JOIN</div>
             </div>
           </div>
 
@@ -145,10 +172,18 @@ addParticipant = () => {
             <li><i className="icon far fa-hourglass"></i>{eventi.duration} hrs</li>
             <li><i className="icon fas fa-map-marker-alt"></i>Online event</li>
             <li><i className="icon fas fa-globe-americas"></i>English</li>
-            <li> <i className="icon fas fa-user-friends"></i>{eventi.participants.length * 100} {this.calcParticipants()}</li>
+            <li> <i className="icon fas fa-user-friends"></i>{eventi.participants.length} {this.calcParticipants()}</li>
           </ul>
 
-          <Comments comments={eventi.comments} />
+          {eventi.participants.length &&
+
+            <ul className="participants">
+              <div className="title">Attending</div>
+              {eventi.participants.map(participant => <li key={participant._id}><Avatar className="avatar">{participant.username[0].toUpperCase()}</Avatar>{participant.username}</li>)
+              }
+            </ul>}
+
+          <Comments user={this.props.loggedInUser} removeComment={this.removeComment} addComment={this.addComment} comments={eventi.comments} />
 
           <div className="next-prev">
             <div className="btn prev"><Link to={`/${eventi.tags[0]}/${prevId}`}><i className="fas fa-arrow-circle-left"></i></Link></div>

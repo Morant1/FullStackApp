@@ -34,7 +34,7 @@ class _EventiPreview extends Component {
                         <div className="icon-container">
                             <span className="calender far fa-calendar-alt fa-sm"></span><span className="icon-text">{this.getDate()}</span>
                             <span className="clock far fa-clock fa-sm"></span><span className="icon-text time"> {this.getTime()}</span>
-                            <span className="far fa-user"></span><span className="icon-text">{eventi.participants.length * 100}</span>
+                            <span className="far fa-user"></span><span className="icon-text">{eventi.participants.length}</span>
                         </div>
                         <div className="event-creator-section">
                             <Avatar className="avatar">{eventi.createdBy.username[0].toUpperCase()}</Avatar>
