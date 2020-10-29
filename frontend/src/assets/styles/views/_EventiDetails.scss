@@ -14,6 +14,24 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        position: relative;
+
+        .navigation {
+
+            position: absolute;
+            top: -30px;
+            left: 0;
+            font-size: 1rem;
+            z-index: 10;
+            color: #232a43;
+            cursor: pointer;
+
+            a {
+                &:hover,:active {
+                    color:purple;
+                }
+            }
+        }
 
         .intro {
             display: flex;
@@ -74,6 +92,14 @@
                 width: 300px;
                 filter: saturate(1.2);
                 border-radius: 50%;
+                border: 2px solid transparent;
+
+                &.round {
+                    margin: 20px;
+                box-shadow: 2px -2px 0 2px #dddddd, -2px -2px 0 2px #dddddd, -2px 2px 0 2px #dddddd, 2px 2px 0 2px #dddddd, 0 0 0 2px #dddddd;
+                animation: border 2s ease 1 forwards;
+
+                }
             }
 
             .MuiFormControlLabel-root {
@@ -199,17 +225,19 @@
                 cursor: pointer;
                 margin: 10px;
                 font-size: 2rem;
-                transition: all .3s;
+                transition: all 0.3s;
 
                 a {
-                    color:inherit;
-                    &:active, :hover,:visited {
-                        color:inherit;
+                    color: inherit;
+                    &:active,
+                    :hover,
+                    :visited {
+                        color: inherit;
                     }
                 }
 
                 &:hover {
-                    transform:scale(1.05)
+                    transform: scale(1.05);
                 }
             }
         }
@@ -240,6 +268,20 @@
     }
     70% {
         transform: scale(1);
+    }
+
+    
+}
+
+@keyframes border {
+    0% {
+      box-shadow: 25px -25px 0 2px #9797ff94, -25px -25px 0 2px #9797ff94, -25px 25px 0 2px #9797ff94, 25px -25px 0 2px #9797ff94, 0 0 0 2px black;
+    }
+    50% {
+        box-shadow: 0 25px 0 3px #9797ff, 25px 0px 0 2px #9797ff, 0px -25px 0 2px #9797ff, -25px 0px 0 2px #9797ff, 0 0 0 2px black;
+      }
+    100% {
+      box-shadow: 0 -25px 0 3px #9797ff94, -25px 0px 0 2px #9797ff94, 0px 25px 0 2px #9797ff94, 25px 0px 0 2px #9797ff94, 0 0 0 2px black;
     }
 }
 

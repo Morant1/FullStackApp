@@ -4,7 +4,8 @@ import httpService from './httpService';
 export const eventiService = {
     query,
     getById,
-    getPrevNext
+    getPrevNext,
+    save
 
 }
 
@@ -37,6 +38,22 @@ async function getPrevNext(currEventi){
        nextId: nextEventi._id
      }
 }
+
+
+async function save(eventi) {
+    if (eventi._id) {
+        const editedEventi  = await httpService.put(`eventi/${eventi._id}`, eventi);
+        console.log("service",editedEventi)
+        return editedEventi
+    } else {
+        const addedEventi  = await httpService.post(`eventi`, eventi);
+        console.log("addEventi",addedEventi)
+        
+        return addedEventi
+    }
+}
+
+
 
 
   

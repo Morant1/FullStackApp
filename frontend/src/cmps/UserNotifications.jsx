@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 export class _UserNotifications extends Component {
     state = {
-        msgs: ["djdlglffh","zgddrkggggggggggggggggggggggggggg","sfsfsdgdgdg","sfgdggggggggggggggg","zgggggggggg","Fsfszff","F"]
+        msgs: []
     }
 
     unsubscribe;
@@ -22,25 +22,33 @@ export class _UserNotifications extends Component {
         const { msgs } = this.state
         if (!msgs) return <div>Loading...</div>
         return (
-            <div className="notification-container">
-            
-                <ul className="notification-list">
-                    {msgs.map((msg, index) => {
-                        return (
-                            <li key={index} className="notification-preview">
-                                <div className="avatar">
-                                    <Avatar>A</Avatar>
-                                </div>
-                                <div className="msg-body">
-                                    <div className="msg">{msg}</div>
-                                    <div className="notification-date">{new Date(Date.now()).toLocaleDateString("en-US")}</div>
-                                </div>
-                            </li>
-                        )
-                    })}
 
-                </ul>
-            </div>
+            <ul className="notification-list">
+                {msgs.length ? msgs.map((msg, index) => {
+                    return (
+                        <li key={index} className="notification-preview">
+                            <div className="avatar">
+                                <Avatar>A</Avatar>
+                            </div>
+                            <div className="msg-body">
+                                <div className="msg-notifiction">{msg}</div>
+                                <div className="notification-date">{new Date(Date.now()).toLocaleDateString("en-US")}</div>
+                            </div>
+                        </li>
+                    )
+                }) :
+                        <li className="notification-preview">
+                            <div className="avatar">
+                                <Avatar>A</Avatar>
+                            </div>
+                            <div className="msg-body">
+                                <div className="notification-msg">No notificatons yet</div>
+                                <div className="notification-date">{new Date(Date.now()).toLocaleDateString("en-US")}</div>
+                            </div>
+                        </li>
+                    }
+
+            </ul>
 
         )
     }

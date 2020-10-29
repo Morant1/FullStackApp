@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { loadEventis } from '../store/actions/eventiActions'
 
+import { loadEventis } from '../store/actions/eventiActions'
+import { signup } from '../store/actions/userActions'
+import { utils } from '../services/utils';
 import { EventisGrid } from '../cmps/EventisGrid'
 import { Header } from '../cmps/Header';
 import { Info } from '../cmps/Info';
@@ -13,6 +15,18 @@ export class _HomePage extends Component {
 
   componentDidMount() {
     this.props.loadEventis();
+
+    if (!this.props.loggedInUser) {
+      const signupCreds =
+      {
+        password: '123456',
+        username: `Guest-${utils.makeId()}`,
+        isGuest: true
+      };
+
+      this.props.signup(signupCreds);
+    }
+
   }
 
   getTopEventis = () => {
@@ -40,11 +54,13 @@ export class _HomePage extends Component {
 
 const mapStateToProps = state => {
   return {
-    eventis: state.eventiReducer.eventis
+    eventis: state.eventiReducer.eventis,
+    loggedInUser: state.userReducer.loggedInUser
   };
 };
 const mapDispatchToProps = {
-  loadEventis
+  loadEventis,
+  signup
 };
 
 export const HomePage = connect(mapStateToProps, mapDispatchToProps)(_HomePage)

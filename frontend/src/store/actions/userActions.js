@@ -5,8 +5,6 @@ import { loading, doneLoading } from './systemActions';
 export function loadUsers() {
   return async dispatch => {
     try {
-      // example for loading
-      // dispatch(loading());
       const users = await userService.getUsers();
       dispatch({ type: 'SET_USERS', users });
     } catch (err) {
@@ -31,14 +29,21 @@ export function removeUser(userId) {
 // THUNK
 export function login(userCreds) {
   return async dispatch => {
-    const user = await userService.login(userCreds);
-    dispatch({ type: 'SET_USER', user });
-    return user;
+    // try {
+      let user = await userService.login(userCreds);
+      dispatch({ type: 'SET_USER', user });
+      return user;
+    // } catch (err) {
+      // console.log('userActions: err in login', err);
+      // alert("Please sign up first")
+    // }
   };
 }
+
 export function signup(userCreds) {
   return async dispatch => {
     const user = await userService.signup(userCreds);
+    console.log("user signup", user)
     dispatch({ type: 'SET_USER', user });
     return user;
   };
@@ -54,7 +59,7 @@ export function updateUser(user) {
   return async dispatch => {
     try {
       const updatedUser = await userService.update(user);
-      console.log("updateUser",updatedUser)
+      console.log("updateUser", updatedUser)
       dispatch({ type: 'SET_USER', user: updatedUser });
     } catch (err) {
       console.log('userActions: err in updateUser', err);

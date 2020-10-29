@@ -7,6 +7,7 @@
     justify-content: space-between;
     align-items: center;
     color: $clr4;
+    
 
     .navbar-links {
         a {
@@ -86,6 +87,7 @@
 
     .navbar-links {
         height: 100%;
+        margin-right: 5px;
 
         ul {
             display: flex;

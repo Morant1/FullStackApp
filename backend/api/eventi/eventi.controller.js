@@ -21,14 +21,14 @@ async function getEventis(req, res) {
 
 // REMOVE
 async function deleteEventi(req, res) {
-    await eventService.remove(req.params.id)
+    await eventiService.remove(req.params.id)
     res.end()
 }
 
 //UPDATE EVENT
 async function updateEventi(req, res) {
     const eventi = {...req.body};
-    await eventService.update(eventi)
+    await eventiService.update(eventi)
     res.send(eventi)
 }
 

@@ -9,19 +9,19 @@ export function eventiReducer(state = initialState, action = {}) {
     case 'EVENT_ADD':
       return {
         ...state,
-        events: [action.addedEventi, ...state.events]
+        eventis: [action.addedEventi, ...state.eventis]
       };
     case 'EVENT_REMOVE':
       return {
         ...state,
-        events: state.events.filter(eventi => {
+        eventis: state.events.filter(eventi => {
           return eventi._id !== action.eventiId
         })
       };
-    case 'EVENT_UPDATE':
+    case 'EVENTI_UPDATE':
       return {
         ...state,
-        events: state.events.map(eventi =>
+        eventis: state.eventis.map(eventi =>
           eventi._id === action.eventi._id ? action.eventi : eventi
         )
       };

@@ -6,8 +6,8 @@ import Switch from '@material-ui/core/Switch';
 
 
 import { Comments } from '../cmps/Comments'
-// import { loadEventis } from '../store/actions/eventiActions'
-import { Avatar, ThemeProvider } from '@material-ui/core';
+import { updateEventi } from '../store/actions/eventiActions'
+import { Avatar } from '@material-ui/core';
 import { Chat } from '../cmps/Chat'
 import { eventiService } from '../services/eventiService';
 import { BusService } from '../services/event-bus-service'
@@ -42,9 +42,33 @@ class _EventiDetails extends Component {
     const eventi = await eventiService.getById(_id);
     this.setState({ eventi }, () => { this.getPrevNextId() });
 
-    BusService.emit('notify', { msg: `You watched ${eventi.title} details` })
+    BusService.emit('notify', { msg: `You watched ${eventi.createdBy.username} details` })
 
   }
+
+  isGoing = () => {
+    const participant = this.state.eventi.participants.find(participant => participant._id === this.props.loggedInUser._id);
+    return participant;
+}
+
+addParticipant = () => {
+    const participant = this.isGoing();
+    let eventi = {...this.state.eventi};
+
+    if (!participant) {
+      eventi.participants = [this.props.loggedInUser, ...eventi.participants]
+      BusService.emit('notify', { msg: `You are going to ${eventi.createdBy.username} event` })
+    } else {
+      eventi.participants = eventi.participants.filter(participant => {
+      return participant._id !==  this.props.loggedInUser._id})
+
+      BusService.emit('notify', { msg: `You are not going to ${eventi.createdBy.username} event anymore` })
+    }
+    this.props.updateEventi(eventi)
+    this.setState({ eventi })
+
+  
+}
 
 
   getDate = () => {
@@ -78,10 +102,12 @@ class _EventiDetails extends Component {
     return (
 
       <section className="eventi-details">
+        
         <div className="details-wrapper">
+    <div className="navigation"><Link to={`/`}>Home</Link><span>&gt;</span><Link to={`/${eventi.tags[0]}`}>{eventi.tags[0]}</Link></div>
 
           <div className="intro">
-            <img src={require(`../assets/img/${eventi.tags[0]}/${eventi.imgUrl}`)} alt="event-creator" />
+            <img className={this.isGoing() && 'round'} src={require(`../assets/img/${eventi.tags[0]}/${eventi.imgUrl}`)} alt="event-creator" />
             <FormControlLabel
               control={
                 <Switch
@@ -91,7 +117,7 @@ class _EventiDetails extends Component {
                   color="primary"
                 />
               }
-              label="Hide event"
+              label="Hide"
             />
 
             <div className="intro-details">
@@ -109,7 +135,7 @@ class _EventiDetails extends Component {
             <div className="actions">
               <div className={isEdit ? 'active' : 'passive'} onClick={() => { this.handleChange('isEdit') }}>EDIT</div>
               <i className="icon far fa-heart beat"></i>
-              <div className={isJoined ? 'active' : 'passive'} onClick={() => { this.handleChange('isJoined') }}>JOIN</div>
+              <div className={this.isGoing() ? 'active' : 'passive'}  onClick={this.addParticipant}>JOIN</div>
             </div>
           </div>
 
@@ -141,12 +167,12 @@ class _EventiDetails extends Component {
 const mapStateToProps = state => {
   return {
     // eventis: state.eventiReducer.eventis
-    // loggedInUser: state.userReducer.loggedInUser
+    loggedInUser: state.userReducer.loggedInUser
   };
 };
 
 const mapDispatchToProps = {
-  // updateEvent,
+  updateEventi,
   // updateUser,
   // removeEventi
   // loadEventis

@@ -24,12 +24,21 @@
     .img-area {
         position: relative;
 
+        .joined {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            color: darkblue;
+            font-size: 1.3rem;
+            z-index: 11;
+        }
+
         .beat {
             position: absolute;
             left: 10px;
             top: 10px;
             font-size: 1.3rem;
-            z-index: 999;
+            z-index: 11;
             color:white;
             &:hover {
                 font-weight: 700;

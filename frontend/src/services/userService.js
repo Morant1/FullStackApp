@@ -17,12 +17,13 @@ async function login(userCred) {
     try {
         const user = await httpService.post('auth/login', userCred)
         return _handleLogin(user)
-    } catch {
-        alert("Please sign up first")
+    } catch(err) {
+        return null;
     }
 }
 
 async function signup(userCred) {
+    console.log("signup info",userCred)
     const user = await httpService.post('auth/signup', userCred)
     return _handleLogin(user)
 }

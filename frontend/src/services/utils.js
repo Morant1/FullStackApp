@@ -3,7 +3,6 @@ export const utils = {
       
 }
     
-    
     export function makeId(length = 4) {
         var txt = '';
         var possible = '123456789';

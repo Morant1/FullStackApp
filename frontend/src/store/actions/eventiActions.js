@@ -46,18 +46,17 @@ export function loadEventis(filterBy = {}) {
 // }
 
 
-// export function updateEvent(eventi) {
-//   return async dispatch => {
-//     try {
-// /*       eventi.startsAt = Date.parse(eventi.startsAt); */
-//       console.log("Event inside action " + eventi)
-//       const addedEvent = await eventService.save(eventi);
-//       dispatch({ type: 'EVENT_UPDATE', eventi: addedEvent });
-//     } catch (err) {
-//       console.log('eventActions: err in updateEvent', err);
-//     }
-//   };
-// }
+export function updateEventi(eventi) {
+  return async dispatch => {
+    try {
+      console.log("Eventi inside action " + eventi)
+      const updatedEventi = await eventiService.save(eventi);
+      dispatch({ type: 'EVENTI_UPDATE', eventi: updatedEventi });
+    } catch (err) {
+      console.log('eventActions: err in updateEventi', err);
+    }
+  };
+}
 
 
 // export function removeEventi(eventiId) {
