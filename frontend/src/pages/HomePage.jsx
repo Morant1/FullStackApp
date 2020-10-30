@@ -10,6 +10,7 @@ import { Info } from '../cmps/Info';
 import { PreviewScroll } from '../cmps/PreviewScroll';
 import { About } from '../cmps/About';
 
+
 export class _HomePage extends Component {
 
 
@@ -57,7 +58,7 @@ export class _HomePage extends Component {
 
         <Header />
         <EventisGrid />
-        <Info />
+        <Info eventis={this.props.eventis} />
         <PreviewScroll topEventis={topEventis} />
         <About/>
 

@@ -18,6 +18,17 @@
         flex-direction: column;
         position: relative;
 
+        .chat {
+          right: 0;
+          font-size: 2rem;
+          position: absolute;
+          bottom: 60px;
+          padding: 5px;
+          cursor: pointer;
+          color: #ea4cea;
+          border-radius: 50%;
+        }
+
         .participants {
             display: flex;
             flex-wrap: wrap;
@@ -250,6 +261,11 @@
                     width: 40px;
                     background-color: #d9d9fd;
                     border-radius: 50%;
+                }
+
+                .zoom {
+                  background-color: #6a90f2;
+                  color: white;
                 }
             }
         }

@@ -92,7 +92,7 @@ class _EventiDetails extends Component {
 
 
   handleChange = (name) => {
-    this.setState({ [name]: !this.state[name] });
+    this.setState({ [name]: !this.state[name] },()=>{console.log(this.state.isChat)});
   }
 
   addComment = (txt) => {
@@ -122,7 +122,7 @@ class _EventiDetails extends Component {
   }
 
   render() {
-    const { eventi, checkedB, isEdit, nextId, prevId } = this.state
+    const { eventi, checkedB, isEdit, nextId, prevId, isChat} = this.state
     if (!eventi) return <div>Loading...</div>
 
 
@@ -173,6 +173,7 @@ class _EventiDetails extends Component {
             <li><i className="icon fas fa-map-marker-alt"></i>Online event</li>
             <li><i className="icon fas fa-globe-americas"></i>English</li>
             <li> <i className="icon fas fa-user-friends"></i>{eventi.participants.length} {this.calcParticipants()}</li>
+            {this.isGoing() && <li><i className="icon zoom fas fa-video"></i><a href='http://www.zoom.com' target="_blank">Event link</a></li>}
           </ul>
 
           {eventi.participants.length &&
@@ -184,6 +185,7 @@ class _EventiDetails extends Component {
             </ul>}
 
           <Comments user={this.props.loggedInUser} removeComment={this.removeComment} addComment={this.addComment} comments={eventi.comments} />
+        {this.isGoing() && <i onClick={()=>{this.handleChange("isChat")}} className="chat far fa-comment-dots"></i>}
 
           <div className="next-prev">
             <div className="btn prev"><Link to={`/${eventi.tags[0]}/${prevId}`}><i className="fas fa-arrow-circle-left"></i></Link></div>
@@ -192,7 +194,7 @@ class _EventiDetails extends Component {
 
         </div>
 
-        {this.isGoing() && <Chat toggleChat={this.handleChange} user={this.props.loggedInUser} eventi={eventi} />}
+        {isChat && <Chat toggleChat={this.handleChange} user={this.props.loggedInUser} eventi={eventi} />}
 
         {checkedB && <div id="background-wrap">
     <div className="bubble x1"></div>

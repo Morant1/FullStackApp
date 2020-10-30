@@ -12,6 +12,7 @@
   position: fixed;
   bottom: 0;
   right: 5px;
+  min-width: 448px;
   font-family: montserrat,sans-serif;
   height: 450px;
   display: flex;
@@ -195,7 +196,9 @@
 }
 
 .msger-header-title {
-  margin-right: 5px
+  margin-right: 20px;
+  margin-left: 5px;
+  font-size: 1rem;
 }
 @media screen and (max-width: 430px) {
   .msger{

@@ -5,6 +5,14 @@
     flex-direction: column;
     justify-content: center;
     color: #e8e8e8;
+    align-items: flex-start;
+ 
+
+    p {
+        &.join {
+                color: #b400ff;
+        }
+    }
     
     &.info-intro {
         background-color: white;
@@ -34,9 +42,6 @@
             color: #b400ff;
         }
 
-        p:last-child {
-            color: #b400ff;
-        }
     }
 
     h3 {
@@ -59,8 +64,27 @@
         }
 
         &:last-child {
-            color: #c38ff3;
+            cursor: pointer;
+            color: #c2c2fb;
             font-weight: 600;
+            border: 1px solid lavender;
+            border-radius: 28px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            padding:0;
+            line-height: 1;
+            padding:8px;
+            margin-top: 19px;
+            margin-left: 13px;        
+            transition: all .3s;
+
+            &:hover {
+                color:lavender;
+                background-color: #1c2235;
+            }
         }
     }
 }

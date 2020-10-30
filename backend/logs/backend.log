@@ -362,3 +362,16 @@ Thu, 29 Oct 2020 15:41:45 GMT - Debug - true, Guest-4915, 123456
 Thu, 29 Oct 2020 15:41:45 GMT - Debug - auth.service - signup with username: Guest-4915
 Thu, 29 Oct 2020 15:41:45 GMT - Debug - auth.route - new account created: {"isGuest":true,"password":"$2b$10$wjGadcjastAHCvNA.fAiHuJ36rQvRHxhpd0PZ7.CM4jH65nL2rolu","username":"Guest-4915","_id":"5f9ae2b9b4f7535bd424f8e2"}
 Thu, 29 Oct 2020 15:41:45 GMT - Debug - auth.service - login with username: Guest-4915
+Fri, 30 Oct 2020 09:05:36 GMT - Info - Server is running on port: 3030
+Fri, 30 Oct 2020 09:06:19 GMT - Debug - true, Guest-2194, 123456
+Fri, 30 Oct 2020 09:06:19 GMT - Debug - auth.service - signup with username: Guest-2194
+Fri, 30 Oct 2020 09:06:20 GMT - Debug - auth.route - new account created: {"isGuest":true,"password":"$2b$10$UX2rN6xqis.Q1JX2MnW1auIOSkDdEid35aHuql3gHRGDmSKfjUpu.","username":"Guest-2194","_id":"5f9bd78c86d4cfb2781497d4"}
+Fri, 30 Oct 2020 09:06:20 GMT - Debug - auth.service - login with username: Guest-2194
+Fri, 30 Oct 2020 09:43:25 GMT - Debug - true, Guest-6719, 123456
+Fri, 30 Oct 2020 09:43:25 GMT - Debug - auth.service - signup with username: Guest-6719
+Fri, 30 Oct 2020 09:43:25 GMT - Debug - auth.route - new account created: {"isGuest":true,"password":"$2b$10$cNe6owdBSUYQOpaGvy6O9.SFc1LdGU8KTeqYdlmFpI/WwBsxhOfZy","username":"Guest-6719","_id":"5f9be03d86d4cfb2781497d5"}
+Fri, 30 Oct 2020 09:43:25 GMT - Debug - auth.service - login with username: Guest-6719
+Fri, 30 Oct 2020 09:51:13 GMT - Debug - true, Guest-9315, 123456
+Fri, 30 Oct 2020 09:51:13 GMT - Debug - auth.service - signup with username: Guest-9315
+Fri, 30 Oct 2020 09:51:14 GMT - Debug - auth.route - new account created: {"isGuest":true,"password":"$2b$10$0RX6H1E6V9BxYRQ7vO2zf.fzxnDLcGp.E5soPl0zrOSBWM/ZrW0OW","username":"Guest-9315","_id":"5f9be21286d4cfb2781497d6"}
+Fri, 30 Oct 2020 09:51:14 GMT - Debug - auth.service - login with username: Guest-9315
