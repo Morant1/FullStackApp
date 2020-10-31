@@ -3,7 +3,7 @@ import { EventiPreview } from './EventiPreview'
 
 
 
-export function EventiList({eventis}) {
+export function EventiList({eventis,updateLikes,isLike}) {
 
 
         return (
@@ -12,7 +12,7 @@ export function EventiList({eventis}) {
             <section className="main-list-container">
                 <ul className="eventis-list-grid">
                     {
-                        eventis.map(eventi => <EventiPreview eventi={eventi} key={eventi._id} />)
+                        eventis.map(eventi => <EventiPreview isLike={isLike} eventi={eventi} key={eventi._id} updateLikes={updateLikes}/>)
                     }
                 </ul>
 

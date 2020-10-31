@@ -56,9 +56,11 @@ class _EventiDetails extends Component {
     let eventi = { ...this.state.eventi };
 
     if (!participant) {
+      this.setState({isChat:true})
       eventi.participants = [this.props.loggedInUser, ...eventi.participants]
       BusService.emit('notify', { msg: `You are going to ${eventi.createdBy.username} event` })
     } else {
+      this.setState({isChat:false})
       eventi.participants = eventi.participants.filter(participant => {
         return participant._id !== this.props.loggedInUser._id
       })
@@ -111,7 +113,6 @@ class _EventiDetails extends Component {
     BusService.emit('notify', { msg: `You left a comment at ${eventi.createdBy.username} event`})
   }
   removeComment = (commentId) => {
-    console.log(commentId)
     const eventi = { ...this.state.eventi }
     eventi.comments = eventi.comments.filter(comment => {
       return comment.id !== commentId
@@ -161,7 +162,6 @@ class _EventiDetails extends Component {
 
             <div className="actions">
               <div className={isEdit ? 'active' : 'passive'} onClick={() => { this.handleChange('isEdit') }}>EDIT</div>
-              <i className="icon far fa-heart beat"></i>
               <div className={this.isGoing() ? 'active' : 'passive'} onClick={this.addParticipant}>JOIN</div>
             </div>
           </div>

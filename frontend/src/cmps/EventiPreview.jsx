@@ -15,14 +15,25 @@ class _EventiPreview extends Component {
         return new Date(this.props.eventi.startsAt).toLocaleDateString('he-IL')
     }
 
+    isLike = () => {
+    const user = this.props.eventi.likes.find(user => user._id === this.props.loggedInUser._id);
+    return user;
+    }
+
+    updateLikes = (ev) => {
+        ev.preventDefault();
+        const user = this.isLike();
+        this.props.updateLikes(this.props.eventi,user);
+    }
+
     render() {
-        const { eventi, location,loggedInUser } = this.props;
+        const { eventi, location,loggedInUser} = this.props;
         const user = loggedInUser && eventi.participants.find(participant => participant._id === loggedInUser._id);
         return (
             <li className={`eventi-preview card ${location.pathname === '/' ? 'preview' : ''}`}>
                 <Link to={`/${eventi.tags[0]}/${eventi._id}`}>
                     <div className="img-area">
-                        <i className="far fa-heart beat"></i>
+                        <i className={`far fa-heart beat ${this.isLike() ? 'liked':''} `} onClick={this.updateLikes}></i>
                         {user && <i className="joined far fa-calendar-check"></i>}
                         <img className="preview-img" alt="eventi-img" src={require(`../assets/img/${eventi.tags[0]}/${eventi.imgUrl}`)} />
                         <div className="wrapper">

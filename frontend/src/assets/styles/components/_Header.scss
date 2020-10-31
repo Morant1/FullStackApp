@@ -1,7 +1,6 @@
 .header-container {
     font-family: sans-serif;
     height: 100vh;
-    // background-image: url("src/assets/img/background4.jpg");
     background-size: cover;
     background-position: center;
     position: relative;
@@ -44,8 +43,8 @@
     }
 
     #slider {
-        animation: slide 15s;
-        animation-delay: 2s;
+        animation: slide 20s;
+        animation-delay: 1s;
         animation-fill-mode: forwards;
         display: inline-flex;
         transition: 0.5s;

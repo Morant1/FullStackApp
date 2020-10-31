@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { loadEventis } from '../store/actions/eventiActions'
+import { loadEventis,updateEventi } from '../store/actions/eventiActions'
 import { EventiList } from '../cmps/EventiList'
 import { EventiFilter } from '../cmps/EventiFilter'
 import { GlobalSearch } from '../cmps/GlobalSearch';
@@ -39,25 +39,38 @@ export class _EventiApp extends Component {
     const currTag = this.props.match.params.tag;
     let filteredEventis;
     if (currTag === 'all') return eventis;
-    if (currTag === 'attend') return this.getAttendingList()
-    if (currTag === 'today') filteredEventis = eventis.filter(eventi => eventi.startsAt === Date.now())
+    if (currTag === 'attend' || currTag === 'like') return this.getEventisList(currTag);
+    if (currTag === 'today') filteredEventis = eventis.filter(eventi => eventi.startsAt === Date.now());
     else filteredEventis = eventis.filter(eventi => eventi.tags.includes(currTag));
     return filteredEventis
 
 
   }
 
-  getAttendingList = () => {
+  getEventisList = (tag) => {
+    const currKey = tag === 'attend' ? 'participants' : 'likes';
     const { eventis, loggedInUser } = this.props;
-    let goingList = [];
+    let eventisList = [];
     for (let i = 0; i < eventis.length; i++) {
-      for (let j = 0; j < eventis[i].participants.length; j++) {
-        if (eventis[i].participants[j]._id === loggedInUser._id)
-          goingList.push(eventis[i])
+      for (let j = 0; j < eventis[i][currKey].length; j++) {
+        if (eventis[i][currKey][j]._id === loggedInUser._id)
+        eventisList.push(eventis[i])
       }
     }
-    console.log(goingList)
-    return goingList
+    return eventisList;
+  }
+
+
+  updateLikes = (currEventi,user) => {
+    let eventi = { ...currEventi };
+    if (!user) {
+      eventi.likes= [this.props.loggedInUser, ...eventi.likes];
+    } else {
+      eventi.likes = eventi.likes.filter(user => {
+        return user._id !== this.props.loggedInUser._id
+      })
+    }
+    this.props.updateEventi(eventi);
   }
 
 
@@ -70,7 +83,7 @@ export class _EventiApp extends Component {
         <GlobalSearch />
         <EventiFilter onSetFilter={this.onSetFilter} />
         { filteredEventis.length ?
-          <EventiList eventis={filteredEventis} />
+          <EventiList eventis={filteredEventis} updateLikes={this.updateLikes} isLike={this.isLike}/>
           :
           <div className="no-events">
             <iframe src="https://giphy.com/embed/55eL3Rlqxs1LCcd6ea" frameBorder="0" className="giphy-embed" allowFullScreen></iframe>
@@ -93,7 +106,8 @@ const mapStateToProps = state => {
   };
 };
 const mapDispatchToProps = {
-  loadEventis
+  loadEventis,
+  updateEventi
 };
 
 export const EventiApp = connect(mapStateToProps, mapDispatchToProps)(_EventiApp)

@@ -65,6 +65,7 @@
     background-size: cover;
     background-position-y: center;
 
+
     .title {
         color: white;
         font-family: Caveat, sans-serif;
@@ -89,6 +90,7 @@
 }
 
 @media screen and (max-width: 1030px) {
+
     .events-grid {
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }

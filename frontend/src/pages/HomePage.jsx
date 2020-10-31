@@ -51,8 +51,8 @@ export class _HomePage extends Component {
 
 
   render() {
-    const topEventis = this.getTopEventis();
-    if (!topEventis) return <div>Loading...</div>
+    const topEventis= this.getTopEventis();
+    if (!topEventis) return <div className="loading"><img src={require('../assets/img/loading.gif')}/></div>
     return (
       <React.Fragment>
 
