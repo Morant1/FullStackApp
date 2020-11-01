@@ -2,25 +2,26 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import { cloudinary } from '../services/cloudinary-service'
-import { eventiService } from '../services/eventiService'
-import { updateEventi ,addEventi } from '../store/actions/eventiActions'
+import { BusService } from '../services/event-bus-service'
+import { updateEventi, addEventi } from '../store/actions/eventiActions'
+import { eventiService } from '../services/eventiService';
 
 
 class _EventiEdit extends Component {
     state = {
         eventi: {
             title: '',
-            createdBy:this.props.loggedInUser,
+            createdBy: this.props.loggedInUser,
             description: '',
             duration: 0,
             capacity: 0,
             category: 'buisness',
             tags: '',
-            imgUrl:'',
+            imgUrl: '',
             startsAt: new Date(Date.now()).toISOString().substring(0, 16),
             participants: [],
             comments: [],
-            likes : []
+            likes: []
 
         }
     }
@@ -42,8 +43,8 @@ class _EventiEdit extends Component {
 
     loadEventi = async (id) => {
         const eventi = await eventiService.getById(id);
-            eventi.startsAt = new Date(eventi.startsAt - (new Date().getTimezoneOffset() * 60000)).toISOString().substring(0, 16);
-            this.setState({ eventi })
+        eventi.startsAt = new Date(eventi.startsAt - (new Date().getTimezoneOffset() * 60000)).toISOString().substring(0, 16);
+        this.setState({ eventi })
     }
 
 
@@ -52,8 +53,8 @@ class _EventiEdit extends Component {
         let value = (target.type === 'number') ? +target.value : target.value;
         if (field === 'imgUrl') value = await cloudinary.uploadImg(target);
         // console.log(value)
-      
-    
+
+
         this.setState(prevState => {
             return {
                 eventi: {
@@ -65,27 +66,31 @@ class _EventiEdit extends Component {
     }
 
     getImg = () => {
-        const {category} = this.state.eventi
+        const { category } = this.state.eventi
         const img = `https://res.cloudinary.com/coding-academy/image/upload/v1604230246/samples/general/${category}.jpg`;
         return img;
     }
 
     onSubmit = async (ev) => {
         ev.preventDefault()
-       let eventi = {...this.state.eventi}
+        let eventi = { ...this.state.eventi }
 
-        
+
         eventi.startsAt = new Date(eventi.startsAt).getTime();
         if (!eventi.imgUrl) eventi.imgUrl = this.getImg();
         if (!Array.isArray(eventi.tags)) eventi.tags = eventi.tags.split(',');
-        if (eventi._id) await this.props.updateEventi(eventi);
+        if (eventi._id) {
+            await this.props.updateEventi(eventi);
+            BusService.emit('notify', { msg: `You edited ${eventi.createdBy.username}'s event details` })
 
-        else {
+        } else {
             eventi.createdAt = Date.now();
             await this.props.addEventi(eventi);
+            BusService.emit('notify', { msg: `You added your own event, named ${eventi.title}` })
         }
-        this.setState({eventi},()=>{console.log(this.state.eventi)}
+        this.setState({ eventi }, () => { console.log(this.state.eventi) }
         )
+
         if (eventi._id) this.props.history.push(`/${eventi.category}/${eventi._id}`);
         else this.props.history.push(`/${eventi.category}`);
     }
@@ -95,7 +100,7 @@ class _EventiEdit extends Component {
         return (
 
             <div className="edit-container">
-                <button onClick={()=>{this.props.history.goBack()}}>Go back</button>
+                <button onClick={() => { this.props.history.goBack() }}>Go back</button>
                 <form onSubmit={this.onSubmit} className="edit-form flex column">
                     <ul className="editor-list">
                         <li>
@@ -136,7 +141,7 @@ class _EventiEdit extends Component {
                             <label htmlFor="imgUrl">Image:</label>
                             <input type="file" name="imgUrl" id="imgUrl" onChange={this.handleChange} />
                         </li>
-                        {eventi.imgUrl && <img className="img-upload" alt="pre-upload"src={eventi.imgUrl}/>}
+                        {eventi.imgUrl && <img className="img-upload" alt="pre-upload" src={eventi.imgUrl} />}
 
                         <li><button className="save-btn" type="submit">Save</button></li>
                     </ul>
@@ -147,8 +152,8 @@ class _EventiEdit extends Component {
 }
 const mapStateToProps = state => {
     return {
-        eventis:state.eventiReducer.eventis,
-        loggedInUser:state.userReducer.loggedInUser
+        eventis: state.eventiReducer.eventis,
+        loggedInUser: state.userReducer.loggedInUser
     }
 }
 

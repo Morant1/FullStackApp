@@ -4,20 +4,20 @@ export function About() {
     return (
         <div className="about-container">
             <div className="wrapper">
-            <h1>Our Motto<span>.</span></h1>
+            <h1>About evenTribe<span>.</span></h1>
             <div className="about">
             <i className="fas fa-gift"></i>
-            <h2>Each day is another oppurtunity</h2>
-                <p>Our women community is here to give you knowledge</p>
+            <h2>EvenTribe is an online events platform</h2>
+                <p>Here you can create engaging virtual events that connect women around the globe.</p>
             </div>
             <div className="about">
             <i className="fas fa-street-view"></i>
-            <h2>Be part of our tribe</h2>
-            <p>Create your own part by adding your own events</p>
+            <h2>We believe in women tribe</h2>
+            <p>Here you can gain knowledge from the most influenical women in our days.</p>
             </div>
             <div className="about">
             <i className="fas fa-user-ninja"></i>
-            <h2>Share your feelings like a warrior</h2>
+            <h2>Connecting is our motto</h2>
             <p>Let us know your thoughts at evenTribe@gmail.com</p>
             </div>
             </div>

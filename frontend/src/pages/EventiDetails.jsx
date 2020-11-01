@@ -6,7 +6,7 @@ import Switch from '@material-ui/core/Switch';
 
 
 import { Comments } from '../cmps/Comments'
-import { updateEventi } from '../store/actions/eventiActions'
+import { updateEventi,removeEventi } from '../store/actions/eventiActions'
 import { Avatar } from '@material-ui/core';
 import { Chat } from '../cmps/Chat'
 import { eventiService } from '../services/eventiService';
@@ -42,8 +42,6 @@ class _EventiDetails extends Component {
     const eventi = await eventiService.getById(_id);
     console.log(eventi)
     this.setState({ eventi }, () => { this.getPrevNextId() });
-
-    BusService.emit('notify', { msg: `You watched ${eventi.createdBy.username}'s event details` })
 
   }
 
@@ -123,6 +121,12 @@ class _EventiDetails extends Component {
     this.setState({ eventi })
   }
 
+  removeEventi = async (id) => {
+    BusService.emit('notify', { msg: `You removed an event created by you, ${this.state.eventi.title}` })
+    await this.props.removeEventi(id)
+    this.props.history.goBack();
+  }
+
   render() {
     const { eventi, checkedB, nextId, prevId, isChat} = this.state
     if (!eventi) return <div>Loading...</div>
@@ -162,8 +166,10 @@ class _EventiDetails extends Component {
             </div>
 
             <div className="actions">
-              <div className='passive'><Link to={`/edit/${eventi._id}`}>Edit</Link></div>
-              <div className={this.isGoing() ? 'active' : 'passive'} onClick={this.addParticipant}>JOIN</div>
+              {eventi.createdBy._id === this.props.loggedInUser._id && <div  onClick={()=>{this.removeEventi(eventi._id)}}className='passive'>Delete</div>}
+              <div className='passive'><Link to={`/edit/${eventi._id}`}>EDIT</Link></div>
+              <div className={this.isGoing() ? 'active' : 'passive'} onClick={this.addParticipant}>
+                {this.isGoing() ? 'UNATTEND' : 'ATTEND'}</div>
             </div>
           </div>
 
@@ -224,9 +230,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
   updateEventi,
-  // updateUser,
-  // removeEventi
-  // loadEventis
+  removeEventi
 }
 
 export const EventiDetails = connect(mapStateToProps, mapDispatchToProps)(_EventiDetails)

@@ -5,7 +5,8 @@ export const eventiService = {
     query,
     getById,
     getPrevNext,
-    save
+    save,
+    remove
 
 }
 
@@ -52,6 +53,11 @@ async function save(eventi) {
         return addedEventi
     }
 }
+
+
+function remove(id) {
+    return httpService.delete(`eventi/${id}`);
+  }
 
 
 

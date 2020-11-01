@@ -57,15 +57,15 @@ export class _Navbar extends Component {
                 <div className={`navbar-links ${isActive ? 'active' : ''}`}>
                     <ul>
                         <li onClick={this.toggleBtn}><Link to="/">Home</Link></li>
-                        {loggedInUser && <li><a><Avatar>{loggedInUser.username[0].toUpperCase()}</Avatar>{loggedInUser.username}</a></li>}
+                        {loggedInUser && <li><a><Avatar>{loggedInUser.username[0].toUpperCase()}</Avatar>{loggedInUser.isGuest ? loggedInUser.username.slice(0,5): loggedInUser.username}</a></li>}
                         <li onClick={this.toggleBtn}><Link to="/login">Sign up</Link></li>
                         <li onClick={this.props.logout}><a>Logout</a></li>
                         <li onClick={this.toggleBtn}><Link to="/edit">Create</Link></li>
                         <li><Link to="/like"><i className="far fa-heart"></i></Link></li>
                         <li onClick={this.toggleNotification}><a><i className="fas fa-bell"></i></a></li>
-                        {isNotify && <div className={`notification-container ${isNotify ? 'visible' : ''}`}>
+                       <div className={`notification-container ${isNotify ? 'visible' : ''}`}>
                             <UserNotifications user={loggedInUser} />
-                        </div>}
+                        </div>
                     </ul>
                 </div>
             </nav>

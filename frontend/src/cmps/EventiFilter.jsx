@@ -57,7 +57,8 @@ export class _EventiFilter extends Component {
         return (
             <section className="main-filter-container" ref={this.filterRef}>
                 <ul className="tag-list">
-                    <li style={{backgroundColor:'lavender'}}onClick={(ev) => { this.redirectClick('attend') }}>Attending</li>
+                    <li className="user-events" onClick={(ev) => { this.redirectClick('yours') }}>Your events</li>
+                    <li className="user-events" onClick={(ev) => { this.redirectClick('attend') }}>Attending</li>
                     <li onClick={(ev) => { this.redirectClick('buisness') }}>Buisness</li>
                     <li onClick={(ev) => { this.redirectClick('holywood') }}>Holywood</li>
                     <li onClick={(ev) => { this.redirectClick('politics') }}>Politics</li>

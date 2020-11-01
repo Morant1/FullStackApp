@@ -24,15 +24,24 @@
         flex-wrap: wrap-reverse;
         padding: 10px;
 
+        .user-events {
+            background-color: lavender;
+
+            &:hover {
+                cursor: pointer;
+                background-color: $clr4;
+                color: white;
+            }
+        }
+
         li {
             margin: 12px 5px 10px 5px;
-            width: 90px;
-            // padding: 0 8px;
             box-shadow: 0.5px 0.5px 1.5px $clr4;
             text-align: center;
             border-radius: 3.25rem;
             font-size: 0.98rem;
             color: $clr4;
+            min-width: 105px;
         }
         li:last-child {
             margin-top: 10px;

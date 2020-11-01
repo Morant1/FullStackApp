@@ -39,11 +39,17 @@ export class _EventiApp extends Component {
     const currTag = this.props.match.params.tag;
     let filteredEventis;
     if (currTag === 'all') return eventis;
+    if (currTag === 'yours') return this.getUserEventis()
     if (currTag === 'attend' || currTag === 'like') return this.getEventisList(currTag);
     if (currTag === 'today') filteredEventis = eventis.filter(eventi => eventi.startsAt === Date.now());
     else filteredEventis = eventis.filter(eventi => eventi.category === currTag);
     return filteredEventis
+  }
 
+  getUserEventis = () => {
+    const {loggedInUser,eventis} = this.props;
+    const userEventis = eventis.filter(eventi => eventi.createdBy._id === loggedInUser._id);
+    return userEventis;
 
   }
 

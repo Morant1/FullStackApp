@@ -41,16 +41,17 @@ export function addEventi(eventi) {
 }
 
 
-// export function removeEventi(eventiId) {
-//   return async dispatch => {
-//     try {
-//       await eventService.remove(eventiId);
-//       dispatch({ type: 'EVENT_REMOVE', eventiId });
-//     } catch (err) {
-//       console.log('eventActions: err in removeEventi', err);
-//     }
-//   };
-// }
+export function removeEventi(eventiId) {
+  return async dispatch => {
+    try {
+      console.log(eventiId)
+      await eventiService.remove(eventiId);
+      dispatch({ type: 'EVENT_REMOVE', eventiId });
+    } catch (err) {
+      console.log('eventActions: err in removeEventi', err);
+    }
+  };
+}
 
 
 

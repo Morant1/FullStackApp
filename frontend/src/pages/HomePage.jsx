@@ -58,8 +58,8 @@ export class _HomePage extends Component {
 
         <Header />
         <EventisGrid />
-        <Info eventis={this.props.eventis} />
         <PreviewScroll topEventis={topEventis} />
+        <Info eventis={this.props.eventis} />
         <About/>
 
       </React.Fragment>

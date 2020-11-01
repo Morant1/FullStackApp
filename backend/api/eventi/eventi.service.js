@@ -85,12 +85,13 @@ async function getById(eventId) {
 }
 
 
-async function remove(eventId) {
+async function remove(eventiId) {
+    console.log(eventiId)
     const collection = await dbService.getCollection('eventi')
     try {
-        await collection.deleteOne({ "_id": ObjectId(eventId) })
+        await collection.deleteOne({ "_id": ObjectId(eventiId) })
     } catch (err) {
-        console.log(`ERROR: cannot remove eventi ${eventId}`)
+        console.log(`ERROR: cannot remove eventi ${eventiId}`)
         throw err;
     }
 }

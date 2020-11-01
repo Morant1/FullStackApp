@@ -19,7 +19,7 @@ function _Header() {
                     </div>
                     <div className="slider-msg">
                         <h1>Join and recieve a link</h1>
-                        <p>All events are online and the link is sent to you via email 24hrs before</p>
+                        <p>All events are online and the link is given to you when you subscribe</p>
                         <Link to={'/all'}>See More</Link>
                     </div>
                     <div className="slider-msg">

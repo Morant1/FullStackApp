@@ -37,6 +37,7 @@
             background-color: #d3d3d321;
             position: relative;
             margin-top: 10px;
+            width: 100%;
 
             .title {
                 position: absolute;
@@ -249,8 +250,8 @@
             flex-direction: column;
             font-weight: 500;
             justify-content: center;
-            flex-wrap: wrap;
-            height: 145px;
+            // flex-wrap: wrap;
+            // height: 145px;
             background-color: #e6e6fa47;
             position: relative;
             top: -16px;

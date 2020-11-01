@@ -3,17 +3,18 @@
     top: 65px;
     font-family: ubunto, sans-serif;
     right: 10px;
-    background-color: #9ba8d6f5;
+    background-color: white;
     overflow-x: hidden;
-    max-height: 75vh;
-    height: 40vh;
+    box-shadow:-0.5px 0.5px 2.5px black;
+    max-height: 60vh;
+    height: 35vh;
     overflow-y: scroll;
     border-radius: 6px;
-    // transition: transfrom .3s ease-in;
-    // transition-delay: .3s;
+    display: none;
     transform: translateX(110%);
 
     &.visible {
+        display: block;
         animation: notify 1.8s ease;
         animation-fill-mode: forwards;
     }
@@ -45,7 +46,8 @@
             display: flex;
             align-items: center;
             justify-content: flex-start;
-            // box-shadow: -1px 1px 0.5px 0px #00000075;
+            margin: 7px;
+            border-bottom: 1px solid lightgray;
 
             .MuiAvatar-colorDefault {
                 color: #fafafa;
