@@ -41,7 +41,7 @@ export class _EventiApp extends Component {
     if (currTag === 'all') return eventis;
     if (currTag === 'attend' || currTag === 'like') return this.getEventisList(currTag);
     if (currTag === 'today') filteredEventis = eventis.filter(eventi => eventi.startsAt === Date.now());
-    else filteredEventis = eventis.filter(eventi => eventi.tags.includes(currTag));
+    else filteredEventis = eventis.filter(eventi => eventi.category === currTag);
     return filteredEventis
 
 

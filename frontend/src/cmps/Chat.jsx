@@ -69,7 +69,7 @@ export class Chat extends Component {
     return (
       <section className="msger">
         <header className="msger-header">
-        <img src={require(`../assets/img/${this.props.eventi.tags[0]}/${this.props.eventi.imgUrl}`)}/>
+        <img src={this.props.eventi.imgUrl}/>
           <div className="msger-header-title">Leave a massege to {this.props.eventi.createdBy.username}
         </div>
           <div className="msger-header-options">

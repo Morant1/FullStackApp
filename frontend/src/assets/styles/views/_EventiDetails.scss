@@ -125,6 +125,15 @@
                     color: $clr4;
                 }
 
+                .passive {
+                  a {
+                    color:inherit;
+                    &:active {
+                      color:inherit;
+                    }
+                  }
+                }
+
                 .beat {
                     &:hover {
                         animation: fa-beat 3s ease infinite;

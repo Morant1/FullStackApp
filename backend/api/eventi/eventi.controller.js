@@ -37,8 +37,7 @@ async function updateEventi(req, res) {
 //ADD
 async function addEventi(req, res) {
     const eventi = req.body;
-    // eventi.createdAt = Date.now();
-    await eventService.add(eventi)
+    await eventiService.add(eventi)
     res.send(eventi)
 }
 

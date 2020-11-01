@@ -13,47 +13,29 @@ export function loadEventis(filterBy = {}) {
   };
 }
 
-// export function addEventi(eventi) {
-//   return async dispatch => {
-//     try {
-//       eventi.createdBy ={
-//         "_id": "u101",
-//         "username": "guest",
-//         // Lior, imgUrl should be [Tag.jpg,userUpload] 
-//         "imgUrl": "https://image.shutterstock.com/image-photo/portrait-smiling-red-haired-millennial-260nw-1194497251.jpg"
-//       }
-// /*       eventi.startsAt = Date.parse(eventi.startsAt) */
-//       eventi.createdAt = Date.now();
-//       eventi.location = eventi.location.split(',');
-//       const location = new Map([
-//         ['city', eventi.location[0]],
-//         ['country',eventi.location[1]]
-//       ]);
-//       var tags = new Array(eventi.tags);
-//       eventi.tags = tags;
-//       eventi.location =  Object.fromEntries(location);
-//       eventi.participants = [];
-//       eventi.comments = [];
-//       eventi.rank = 0;
-//       /* eventi.createdby = {}; */
-//       const addedEventi = await eventService.save(eventi);
-//       console.log("Added eventi ", addedEventi)
-//       dispatch({ type: 'EVENT_ADD', addedEventi });
-//     } catch (err) {
-//       console.log('eventActions: err in addEvent', err);
-//     }
-//   };
-// }
 
 
 export function updateEventi(eventi) {
   return async dispatch => {
     try {
-      console.log("Eventi inside action " + eventi)
+      console.log(eventi)
       const updatedEventi = await eventiService.save(eventi);
+      console.log("updated from service",updatedEventi)
       dispatch({ type: 'EVENTI_UPDATE', eventi: updatedEventi });
     } catch (err) {
       console.log('eventActions: err in updateEventi', err);
+    }
+  };
+}
+
+export function addEventi(eventi) {
+  return async dispatch => {
+    try {
+      console.log(eventi)
+      const addedEventi = await eventiService.save(eventi);
+      dispatch({ type: 'EVENTI_ADD', eventi: addedEventi });
+    } catch (err) {
+      console.log('eventActions: err in addEventi', err);
     }
   };
 }

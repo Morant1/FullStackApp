@@ -28,7 +28,7 @@ async function getById(eventId) {
 async function getPrevNext(currEventi){
     const eventis = await query();
 
-    const eventisByTag = eventis.filter(eventi => eventi.tags[0] === currEventi.tags[0])
+    const eventisByTag = eventis.filter(eventi => eventi.category === currEventi.category)
     const currIdx = eventisByTag.findIndex(eventi => eventi._id === currEventi._id)
     const nextEventi = eventisByTag[currIdx + 1] || eventisByTag[0]
     const prevEventi = eventisByTag[currIdx - 1] || eventisByTag[eventisByTag.length - 1]

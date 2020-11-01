@@ -31,13 +31,13 @@ class _EventiPreview extends Component {
         const user = loggedInUser && eventi.participants.find(participant => participant._id === loggedInUser._id);
         return (
             <li className={`eventi-preview card ${location.pathname === '/' ? 'preview' : ''}`}>
-                <Link to={`/${eventi.tags[0]}/${eventi._id}`}>
+                <Link to={`/${eventi.category}/${eventi._id}`}>
                     <div className="img-area">
                         <i className={`far fa-heart beat ${this.isLike() ? 'liked':''} `} onClick={this.updateLikes}></i>
                         {user && <i className="joined far fa-calendar-check"></i>}
-                        <img className="preview-img" alt="eventi-img" src={require(`../assets/img/${eventi.tags[0]}/${eventi.imgUrl}`)} />
+                        <img className="preview-img" alt="eventi-img" src={eventi.imgUrl} />
                         <div className="wrapper">
-                            <div className="hashtag"><i className="fas fa-hashtag"></i>{eventi.tags[0]}</div>
+                            <div className="hashtag"><i className="fas fa-hashtag"></i>{eventi.category}</div>
                         </div>
                     </div>
                     <div className="preview-info">

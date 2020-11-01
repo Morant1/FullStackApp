@@ -6,15 +6,12 @@ export function eventiReducer(state = initialState, action = {}) {
   switch (action.type) {
     case 'SET_EVENTIS':
       return { ...state, eventis: action.eventis };
-    case 'EVENT_ADD':
+    case 'EVENTI_ADD':
+      return { ...state, eventis: [...state.eventis, action.eventi] }
+    case 'EVENTI_REMOVE':
       return {
         ...state,
-        eventis: [action.addedEventi, ...state.eventis]
-      };
-    case 'EVENT_REMOVE':
-      return {
-        ...state,
-        eventis: state.events.filter(eventi => {
+        eventis: state.eventis.filter(eventi => {
           return eventi._id !== action.eventiId
         })
       };

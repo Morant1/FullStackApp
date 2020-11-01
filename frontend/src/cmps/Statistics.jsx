@@ -6,10 +6,10 @@ export class Statistics extends Component {
   
     getEventisType = () => {
         const data = this.props.eventis.reduce(function (acc, currVal) {
-            if (!acc[currVal.tags[0]]) {
-                acc[currVal.tags[0]] = 1;
+            if (!acc[currVal.category]) {
+                acc[currVal.category] = 1;
             } else {
-                acc[currVal.tags[0]] += 1;
+                acc[currVal.category] += 1;
             }
             return acc;
         }, {});

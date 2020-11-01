@@ -16,7 +16,6 @@ import { utils } from '../services/utils';
 class _EventiDetails extends Component {
   state = {
     eventi: null,
-    isEdit: false,
     checkedB: false,
     isChat: false,
     nextId: null,
@@ -24,6 +23,7 @@ class _EventiDetails extends Component {
   }
 
   componentDidMount() {
+    console.log("mounted")
     this.loadEventi()
   }
 
@@ -40,9 +40,10 @@ class _EventiDetails extends Component {
   loadEventi = async () => {
     const { _id } = this.props.match.params;
     const eventi = await eventiService.getById(_id);
+    console.log(eventi)
     this.setState({ eventi }, () => { this.getPrevNextId() });
 
-    BusService.emit('notify', { msg: `You watched ${eventi.createdBy.username} details` })
+    BusService.emit('notify', { msg: `You watched ${eventi.createdBy.username}'s event details` })
 
   }
 
@@ -83,7 +84,7 @@ class _EventiDetails extends Component {
 
   calcParticipants = () => {
     const { eventi } = this.state;
-    if (!eventi.capacity) return '';
+    if (!eventi.capacity) return 'participants';
     return `(${eventi.capacity - eventi.participants.length} available)`;
   }
 
@@ -123,7 +124,7 @@ class _EventiDetails extends Component {
   }
 
   render() {
-    const { eventi, checkedB, isEdit, nextId, prevId, isChat} = this.state
+    const { eventi, checkedB, nextId, prevId, isChat} = this.state
     if (!eventi) return <div>Loading...</div>
 
 
@@ -132,10 +133,10 @@ class _EventiDetails extends Component {
       <section className="eventi-details">
 
         <div className="details-wrapper">
-          <div className="navigation"><Link to={`/`}>Home</Link><span>&gt;</span><Link to={`/${eventi.tags[0]}`}>{eventi.tags[0]}</Link></div>
+          <div className="navigation"><Link to={`/`}>Home</Link><span>&gt;</span><Link to={`/${eventi.category}`}>{eventi.category}</Link></div>
 
           <div className="intro">
-            <img className={this.isGoing() && 'round'} src={require(`../assets/img/${eventi.tags[0]}/${eventi.imgUrl}`)} alt="event-creator" />
+            <img className={this.isGoing() && 'round'} src={eventi.imgUrl} alt="event-creator" />
             <FormControlLabel
               control={
                 <Switch
@@ -155,13 +156,13 @@ class _EventiDetails extends Component {
               </div>
               <h1>{eventi.title}</h1>
               <p>{eventi.description}</p>
-              <ul className="tags">
+              {eventi.tags && <ul className="tags">
                 {eventi.tags.map((tag, idx) => <li key={`${tag}-${idx}`}>{tag}</li>)}
-              </ul>
+              </ul>}
             </div>
 
             <div className="actions">
-              <div className={isEdit ? 'active' : 'passive'} onClick={() => { this.handleChange('isEdit') }}>EDIT</div>
+              <div className='passive'><Link to={`/edit/${eventi._id}`}>Edit</Link></div>
               <div className={this.isGoing() ? 'active' : 'passive'} onClick={this.addParticipant}>JOIN</div>
             </div>
           </div>
@@ -176,20 +177,20 @@ class _EventiDetails extends Component {
             {this.isGoing() && <li><i className="icon zoom fas fa-video"></i><a href='http://www.zoom.com' target="_blank">Event link</a></li>}
           </ul>
 
-          {eventi.participants.length &&
+          {eventi.participants.length ?
 
             <ul className="participants">
               <div className="title">Attending</div>
               {eventi.participants.map(participant => <li key={participant._id}><Avatar className="avatar">{participant.username[0].toUpperCase()}</Avatar>{participant.username}</li>)
               }
-            </ul>}
+            </ul>:''}
 
           <Comments user={this.props.loggedInUser} removeComment={this.removeComment} addComment={this.addComment} comments={eventi.comments} />
         {this.isGoing() && <i onClick={()=>{this.handleChange("isChat")}} className="chat far fa-comment-dots"></i>}
 
           <div className="next-prev">
-            <div className="btn prev"><Link to={`/${eventi.tags[0]}/${prevId}`}><i className="fas fa-arrow-circle-left"></i></Link></div>
-            <div className="btn next"><Link to={`/${eventi.tags[0]}/${nextId}`}><i className="fas fa-arrow-circle-right"></i></Link></div>
+            <div className="btn prev"><Link to={`/${eventi.category}/${prevId}`}><i className="fas fa-arrow-circle-left"></i></Link></div>
+            <div className="btn next"><Link to={`/${eventi.category}/${nextId}`}><i className="fas fa-arrow-circle-right"></i></Link></div>
           </div>
 
         </div>
