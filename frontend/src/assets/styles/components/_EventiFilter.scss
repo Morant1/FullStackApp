@@ -17,7 +17,6 @@
     }
 
     .tag-list {
-        margin-bottom:15px;
         display: flex;
         justify-content: center;
         align-content: space-between;
@@ -35,7 +34,7 @@
         }
 
         li {
-            margin: 12px 5px 10px 5px;
+            margin:10px 3px 4px 3px;
             box-shadow: 0.5px 0.5px 1.5px $clr4;
             text-align: center;
             border-radius: 3.25rem;
@@ -57,7 +56,7 @@
         display: flex;
         justify-content: space-between;
         flex-direction: column;
-        padding: 8px 8px 20px 8px;
+        padding: 8px 8px 10px 8px;
 
         .MuiFormControl-root {
             margin-bottom: 10px;

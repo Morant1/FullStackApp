@@ -7,10 +7,20 @@
     justify-content: space-between;
     align-items: center;
     color: $clr4;
-    
+
+    .user {
+        
+    display: flex;
+    margin-left: 30px;
+
+        color:$clr4;
+        .avatar {
+            margin-right: 5px;
+        }
+    }
 
     .navbar-links {
-        a {
+        a:not(.line) {
             cursor: pointer;
         }
     }
@@ -18,10 +28,16 @@
     &.scrolled {
         // background-color: #232a4394;
         background-color: #232a43d4;
+        .logo{
+        .user {
+            color: white;
+        }
+        
 
         .brand-title {
             color: white;
         }
+    }
 
         .navbar-links ul li {
             a {
@@ -33,11 +49,21 @@
                 }
             }
         }
+
+        .toggle-button {
+            .bar {
+                background-color:#fbdfe4;
+            }
+        }
     }
 
+    .logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     .brand-title {
         font-size: 1.8rem;
-        margin-left: 65px;
+        margin-left: 53px;
         color: $clr4;
         font-family: Caveat, sans-serif;
         cursor: pointer;
@@ -49,6 +75,7 @@
         left: 5px;
         cursor: pointer;
     }
+}
 
     .toggle-button {
         cursor: pointer;
@@ -101,24 +128,51 @@
             a {
                 transition: box-shadow 0.3s;
                 display: block;
+                display: flex;
+                height: 60px;
+                align-items: center;
+                justify-content: center;
                 text-decoration: none;
                 color: $clr4;
                 padding: 1rem;
                 font-weight: 600;
                 background-color: transparent;
 
-                &:hover {
+                &:not(.line):hover {
                     box-shadow: 0px 2px $clr4;
                 }
+
             }
         }
     }
+
+    .MuiAvatar-root {
+        width: 30px;
+        height: 30px;
+    }
+
+    .MuiAvatar-colorDefault {
+        color: #3be2ac;
+        background-color: $clr4;
+        font-family: montserrat, sans-serif;
+    }
+
+    .icon {
+        margin-right: 5px;
+        &.bell {
+            margin-left: 18px;
+            color: #fbdfe4;
+            cursor: pointer
+        }
+
+    }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 850px) {
     .navbar {
         flex-direction: column;
         align-items: flex-start;
+        justify-content: center;
 
         .toggle-button {
             display: flex;
@@ -142,7 +196,9 @@
                         color: white;
                         font-weight: normal;
                         background-color: #232a4394;
-
+                        &.line {
+                            display: none;
+                        }
                         &:hover {
                             box-shadow: 0px 2px $clr4;
                         }

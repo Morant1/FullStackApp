@@ -13,13 +13,14 @@
         left: 50%;
         text-align: center;
         transform: translate(-50%, -50%);
-        animation: type 2.5s steps(29);
+        animation: type 2.5s steps(30);
         overflow: hidden;
         white-space: nowrap;
         border-right: 4px solid #3be2ac;
         color: #232a43;
         margin: 10px 0;
         font-size: 1.8rem;
+        padding: 0 2px;
 
         .start-title {
             font-size: 2.2rem;
@@ -112,7 +113,7 @@
         width: 0ch;
     }
     100% {
-        width: 29ch;
+        width: 30ch;
     }
 }
 
@@ -150,7 +151,7 @@
 @media screen and (max-width: 550px) {
     .header-container {
         .main-title {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
         }
     }
 }

@@ -1,8 +1,123 @@
 .edit-container {
-    margin-top:200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $clr4;
+    background-position: center;
+    background-size: cover;
+    .MuiInputBase-input {
+        font-family: montserrat, sans-serif !important;
+    }
+
+    .edit-form {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        margin: 100px 0;
+        padding: 55px;
+        background-color: rgba(255, 255, 255, 0.73);
+        border-radius: 28px;
+        box-shadow: 0 0 2px black;
+        width: 85%;
+        .input-left,
+        .input-right {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+        }
+        label {
+            color: #232a43;
+            font-weight: 700;
+            font-family: montserrat, sans-serif;
+        }
+        .input-left {
+            margin-right: 30px;
+            .MuiInputBase-multiline {
+                margin: 7px 0;
+            }
+        }
+
+        .img-upload-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .img-upload {
+                width: 200px;
+                margin-top: 20px;
+                box-shadow: 0 0 3px black;
+            }
+        }
+
+        .custom-file-upload {
+            border: 1px solid #ccc;
+            display: inline-block;
+            padding: 6px 12px;
+            cursor: pointer;
+            color: $clr4;
+            padding: 8px 22px;
+            font-size: 0.9375rem;
+            box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+                0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+            // min-width: 64px;
+            width: 100%;
+            box-sizing: border-box;
+            transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+                box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-weight: 500;
+            line-height: 1.75;
+            color: $clr4;
+            margin: 10px 0;
+            background-color: lavender;
+            border-radius: 4px;
+            letter-spacing: 0.02857em;
+            text-align: center;
+            text-transform: uppercase;
+
+            &:hover {
+                background-color: #cacaf5;
+            }
+        }
+
+        i {
+            margin-right: 10px;
+            &.back {
+                position: absolute;
+                top: 10px;
+                left: 50;
+                font-size: 1.5rem;
+                cursor: pointer;
+                color: $clr4;
+            }
+        }
+
+        .MuiButton-containedPrimary {
+            color: #fff;
+            background-color: #232a43;
+        }
+
+        .MuiFormControl-root {
+            margin: 5px 0;
+        }
+    }
 }
 
-.img-upload {
-    width: 350px;
-    border-radius: 50%;
+@media screen and (max-width: 800px) {
+    .edit-container {
+        .edit-form {
+            flex-direction: column;
+            width: 90%;
+
+            .input-left,
+            .input-right {
+                width: 100%;
+            }
+
+            .input-left {
+                margin-right: 0;
+            }
+        }
+    }
 }

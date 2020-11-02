@@ -59,6 +59,7 @@ export class _EventiFilter extends Component {
                 <ul className="tag-list">
                     <li className="user-events" onClick={(ev) => { this.redirectClick('yours') }}>Your events</li>
                     <li className="user-events" onClick={(ev) => { this.redirectClick('attend') }}>Attending</li>
+                    <li className="user-events" onClick={(ev) => { this.redirectClick('like') }}>Liked</li>
                     <li onClick={(ev) => { this.redirectClick('buisness') }}>Buisness</li>
                     <li onClick={(ev) => { this.redirectClick('holywood') }}>Holywood</li>
                     <li onClick={(ev) => { this.redirectClick('politics') }}>Politics</li>

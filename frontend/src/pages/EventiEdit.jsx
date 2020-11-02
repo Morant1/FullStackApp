@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
+import { InputLabel, FormControl, MenuItem, Select, TextField, Button } from '@material-ui/core';
+
+
 import { cloudinary } from '../services/cloudinary-service'
 import { BusService } from '../services/event-bus-service'
 import { updateEventi, addEventi } from '../store/actions/eventiActions'
@@ -99,52 +102,48 @@ class _EventiEdit extends Component {
         const { eventi } = this.state
         return (
 
-            <div className="edit-container">
-                <button onClick={() => { this.props.history.goBack() }}>Go back</button>
-                <form onSubmit={this.onSubmit} className="edit-form flex column">
-                    <ul className="editor-list">
-                        <li>
-                            <label htmlFor="title">Title</label>
-                            <input type="text" autoComplete="off" name="title" id="title" onChange={this.handleChange} value={eventi.title} placeholder="Think of a good title..." />
-                        </li>
-                        <li>
-                            <label htmlFor="description">Short description</label>
-                            <textarea type="text" autoComplete="off" name="description" id="description" onChange={this.handleChange} value={eventi.description} placeholder="Describe your event shortly..." />
-                        </li>
-                        <li>
-                            <label htmlFor="date">When is it:</label>
-                            <input type="datetime-local" name="startsAt" id="date" onChange={this.handleChange} value={eventi.startsAt} />
-                        </li>
-                        <li>
-                            <label htmlFor="duration">How Long will it be?</label>
-                            <input type="number" name="duration" id="duration" step="0.5" min="0" max="100" onChange={this.handleChange} value={eventi.duration} placeholder="Duration(in hours)" />
-                            hrs
-                        </li>
-                        <li>
-                            <label htmlFor="capacity">Maximum Amount of people: (choose '0' for unlimited)</label>
-                            <input type="number" name="capacity" id="capacity" step="1" min="0" max="100000" onChange={this.handleChange} value={eventi.capacity} placeholder="Capacity" />
-                        </li>
-                        <li>
-                            <label htmlFor="category">Choose a Catagory:</label>
-                            <select id="category" name="category" onChange={this.handleChange} value={eventi.category}>
-                                <option value="buisness">Buisness</option>
-                                <option value="sports">Sports</option>
-                                <option value="holywood">Holywood</option>
-                                <option value="politics">Politics</option>
-                            </select>
-                        </li>
-                        <li>
-                            <label htmlFor="tags">Hashtags</label>
-                            <input type="text" autoComplete="off" name="tags" id="tags" onChange={this.handleChange} value={eventi.tags} placeholder="Please write with a comma separated" />
-                        </li>
-                        <li>
-                            <label htmlFor="imgUrl">Image:</label>
-                            <input type="file" name="imgUrl" id="imgUrl" onChange={this.handleChange} />
-                        </li>
-                        {eventi.imgUrl && <img className="img-upload" alt="pre-upload" src={eventi.imgUrl} />}
+            <div className="edit-container" style={{ backgroundImage: `url(${require('../assets/img/ana.jpg')})` }}>
+                <form onSubmit={this.onSubmit} className="edit-form">
+                    <div onClick={() => { this.props.history.goBack() }}><i className="back fas fa-arrow-circle-left"></i></div>
+                    <div className="input-left">
+                        <FormControl>
+                            <InputLabel htmlFor="category">Choose a Catagory:</InputLabel>
+                            <Select id="category" name="category" onChange={this.handleChange} value={eventi.category}>
+                                <MenuItem value="buisness">Buisness</MenuItem>
+                                <MenuItem value="sports">Sports</MenuItem>
+                                <MenuItem value="holywood">Holywood</MenuItem>
+                                <MenuItem value="politics">Politics</MenuItem>
+                            </Select>
+                        </FormControl>
+                        <TextField label="Title" type="text" autoComplete="off" name="title" onChange={this.handleChange} value={eventi.title} placeholder="Think of a good title" />
+                        <TextField label="Tags" type="text" autoComplete="off" name="tags" id="tags" onChange={this.handleChange} value={eventi.tags} placeholder="comma separated" />
+                        <TextField label="Description" multiline rows={8} variant="outlined" type="text" autoComplete="off" name="description" id="description" onChange={this.handleChange} value={eventi.description} placeholder="Describe your event shortly..." />
+                    </div>
+                    <div className="input-right">
+                        <TextField label="When is it" InputLabelProps={{
+                            shrink: true,
+                        }} type="datetime-local" name="startsAt" id="date" onChange={this.handleChange} value={eventi.startsAt} />
+                        <TextField label="How long will it be (in hours)" type="number" name="duration" id="duration" step="0.5" min="0" max="100" onChange={this.handleChange} value={eventi.duration} placeholder="Duration(in hours)" />
 
-                        <li><button className="save-btn" type="submit">Save</button></li>
-                    </ul>
+                        <TextField label="Maximum participants (0 - unlimited)" type="number" name="capacity" id="capacity" step="1" min="0" max="100000" onChange={this.handleChange} value={eventi.capacity} placeholder="Capacity" />
+
+
+
+                        <InputLabel htmlFor="file-upload" className="custom-file-upload"><i className="fas fa-upload"></i>Upload Image</InputLabel>
+                        <input type="file" style={{ display: 'none' }} name="imgUrl" id="file-upload" onChange={this.handleChange} />
+
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            size="large"
+                            className="save-btn"
+                            type="submit"
+                        >
+                            <i className="fas fa-save"></i> Save</Button>
+                        <div className="img-upload-container">
+                            {eventi.imgUrl && <img className="img-upload" alt="pre-upload" src={eventi.imgUrl} />}
+                        </div>
+                    </div>
                 </form>
             </div>
         )

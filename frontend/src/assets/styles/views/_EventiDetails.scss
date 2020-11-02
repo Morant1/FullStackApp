@@ -1,7 +1,4 @@
 .eventi-details {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin-top: 100px;
     margin-right: 50px;
     margin-left: 50px;
@@ -250,13 +247,12 @@
             flex-direction: column;
             font-weight: 500;
             justify-content: center;
-            // flex-wrap: wrap;
-            // height: 145px;
             background-color: #e6e6fa47;
             position: relative;
-            top: -16px;
+            top: -10px;
             z-index: 1;
-            padding: 20px 20px 0 20px;
+            margin-bottom: 25px;
+            padding: 30px 20px 20px 20px;
 
             li {
                 display: flex;
