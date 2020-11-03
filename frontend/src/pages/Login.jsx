@@ -89,7 +89,7 @@ class _Login extends Component {
 
 
     render() {
-        const { isSignup, msg } = this.state
+        const { isSignup } = this.state
         return (
             <section className="login-container" style={{ backgroundImage: `url(${require("../assets/img/background7.jpg")})` }}>
                 <div className="form-modal">

@@ -27,21 +27,15 @@ export function removeUser(userId) {
 // THUNK
 export function login(userCreds) {
   return async dispatch => {
-    // try {
       let user = await userService.login(userCreds);
       dispatch({ type: 'SET_USER', user });
       return user;
-    // } catch (err) {
-      // console.log('userActions: err in login', err);
-      // alert("Please sign up first")
-    // }
   };
 }
 
 export function signup(userCreds) {
   return async dispatch => {
     const user = await userService.signup(userCreds);
-    console.log("user signup", user)
     dispatch({ type: 'SET_USER', user });
     return user;
   };
@@ -57,7 +51,6 @@ export function updateUser(user) {
   return async dispatch => {
     try {
       const updatedUser = await userService.update(user);
-      console.log("updateUser", updatedUser)
       dispatch({ type: 'SET_USER', user: updatedUser });
     } catch (err) {
       console.log('userActions: err in updateUser', err);

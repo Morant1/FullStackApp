@@ -82,7 +82,6 @@ export class _EventiApp extends Component {
 
   render() {
     const filteredEventis = this.loadFilteredEventis();
-    console.log(filteredEventis)
     const { filterBy } = this.state;
     return (
       <React.Fragment>

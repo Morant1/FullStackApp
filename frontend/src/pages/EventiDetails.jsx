@@ -23,7 +23,6 @@ class _EventiDetails extends Component {
   }
 
   componentDidMount() {
-    console.log("mounted")
     this.loadEventi()
   }
 
@@ -40,7 +39,6 @@ class _EventiDetails extends Component {
   loadEventi = async () => {
     const { _id } = this.props.match.params;
     const eventi = await eventiService.getById(_id);
-    console.log(eventi)
     this.setState({ eventi }, () => { this.getPrevNextId() });
 
   }
@@ -93,7 +91,7 @@ class _EventiDetails extends Component {
 
 
   handleChange = (name) => {
-    this.setState({ [name]: !this.state[name] },()=>{console.log(this.state.isChat)});
+    this.setState({ [name]: !this.state[name] });
   }
 
   addComment = (txt) => {

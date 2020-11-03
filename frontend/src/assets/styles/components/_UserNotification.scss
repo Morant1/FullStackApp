@@ -3,9 +3,10 @@
     top: 65px;
     font-family: ubunto, sans-serif;
     right: 10px;
+    left: unset;
     background-color: white;
     overflow-x: hidden;
-    box-shadow:-0.5px 0.5px 2.5px black;
+    box-shadow: -0.5px 0.5px 2.5px black;
     max-height: 60vh;
     height: 35vh;
     overflow-y: scroll;
@@ -18,7 +19,6 @@
         animation: notify 1.8s ease;
         animation-fill-mode: forwards;
     }
-
 
     &::-webkit-scrollbar {
         width: 10px;
@@ -83,3 +83,9 @@
     }
 }
 
+@media (max-width: 400px) {
+    .notification-container {
+        right: 10px;
+        left: 10px;
+    }
+}

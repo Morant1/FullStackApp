@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import socketService from '../services/socketService';
-import { Avatar, Button, TextField } from '@material-ui/core';
+import { Avatar } from '@material-ui/core';
 
 export class Chat extends Component {
   state = {
@@ -34,7 +34,7 @@ export class Chat extends Component {
   sendMsg = ev => {
     ev.preventDefault();
     socketService.emit('chat newMsg', this.state.msg);
-    this.setState({ msg: { ...this.state.msg, txt: '' }, typeMsg: '' }, () => console.log(this.state));
+    this.setState({ msg: { ...this.state.msg, txt: '' }, typeMsg: '' });
   };
 
   msgHandleFocus = ev => {
@@ -51,7 +51,6 @@ export class Chat extends Component {
 
   msgHandleChange = ev => {
     const { name, value } = ev.target;
-    console.log(name,value)
 
     this.setState(prevState => {
       return {
@@ -69,7 +68,7 @@ export class Chat extends Component {
     return (
       <section className="msger">
         <header className="msger-header">
-        <img src={this.props.eventi.imgUrl}/>
+        <img src={this.props.eventi.imgUrl} alt="chat"/>
           <div className="msger-header-title">Leave a massege to {this.props.eventi.createdBy.username}
         </div>
           <div className="msger-header-options">

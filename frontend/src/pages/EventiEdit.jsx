@@ -55,7 +55,6 @@ class _EventiEdit extends Component {
         const field = target.name;
         let value = (target.type === 'number') ? +target.value : target.value;
         if (field === 'imgUrl') value = await cloudinary.uploadImg(target);
-        // console.log(value)
 
 
         this.setState(prevState => {
@@ -91,8 +90,7 @@ class _EventiEdit extends Component {
             await this.props.addEventi(eventi);
             BusService.emit('notify', { msg: `You added your own event, named ${eventi.title}` })
         }
-        this.setState({ eventi }, () => { console.log(this.state.eventi) }
-        )
+        this.setState({ eventi })
 
         if (eventi._id) this.props.history.push(`/${eventi.category}/${eventi._id}`);
         else this.props.history.push(`/${eventi.category}`);

@@ -12,5 +12,12 @@
 
 }
 
+@media screen and (max-width: 400px) {
+    .eventis-list-grid{
+        grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    }
+
+}
+
 
 
